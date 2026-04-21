@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point 2000 — Progetto di Ristrutturazione Societaria 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#e85d1a;--orange-dark:#c44d10;--black:#111111;--white:#ffffff;--off-white:#f5f4f2;--light-grey:#e8e8e8;--mid-grey:#888888;--dark-grey:#444444;--border:#e0e0e0;--card-bg:#f9f8f6;--success:#2e7d4f;--warning:#b85c00;}
+*{margin:0;padding:0;box-sizing:border-box;}html,body{overflow-x:hidden;max-width:100vw;}html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%;}
+header{background:var(--white);border-bottom:3px solid var(--orange);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:38px;height:38px;background:var(--orange);clip-path:polygon(20% 0%,80% 0%,100% 50%,80% 100%,20% 100%,0% 50%);flex-shrink:0;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:var(--black);line-height:1;}
+.logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+.header-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid-grey);border:1.5px solid var(--border);padding:5px 14px;border-radius:2px;}
+.hero{background:var(--white);padding:60px 32px 50px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::after{content:'2026';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:220px;color:rgba(0,0,0,0.03);line-height:1;pointer-events:none;user-select:none;max-width:100%;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--orange);}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(48px,8vw,96px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;color:var(--black);max-width:700px;margin-bottom:6px;}
+.hero h1 .orange{color:var(--orange);}
+.hero-subtitle{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(18px,3vw,26px);text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:20px;}
+.hero-desc{font-size:15px;color:var(--dark-grey);max-width:520px;line-height:1.7;margin-bottom:32px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--white);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:13px 26px;border-radius:2px;transition:background .2s,transform .15s;cursor:pointer;border:none;}
+.btn-primary:hover{background:var(--orange-dark);transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--black);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:12px 26px;border-radius:2px;border:2px solid var(--black);transition:background .2s,color .2s;}
+.btn-outline:hover{background:var(--black);color:var(--white);}
+.kpi-strip{background:var(--black);padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.kpi-item{padding:24px 20px;border-right:1px solid rgba(255,255,255,0.08);position:relative;}
+.kpi-item:last-child{border-right:none;}
+.kpi-item::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--orange);transition:width .4s ease;}
+.kpi-item:hover::before{width:100%;}
+.kpi-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;}
+.kpi-value{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:26px;line-height:1;color:var(--orange);}
+.kpi-note{font-size:11px;color:rgba(255,255,255,0.3);margin-top:3px;}
+.section-nav{background:var(--off-white);border-bottom:1px solid var(--border);padding:0 32px;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.nav-pill{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid-grey);padding:16px 18px;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;}
+.nav-pill:hover{color:var(--orange);border-color:var(--orange);}
+.section{padding:60px 32px;border-bottom:1px solid var(--border);max-width:900px;margin:0 auto;}
+.section-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:36px;}
+.section-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:64px;line-height:0.85;color:rgba(0,0,0,0.06);flex-shrink:0;user-select:none;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(28px,4vw,42px);text-transform:uppercase;line-height:0.95;letter-spacing:-.5px;color:var(--black);}
+.prose{font-size:15px;color:var(--dark-grey);line-height:1.75;}
+.prose p{margin-bottom:16px;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{color:var(--black);font-weight:600;}
+.highlight-box{background:var(--card-bg);border-left:4px solid var(--orange);padding:20px 24px;margin:24px 0;border-radius:0 4px 4px 0;}
+.highlight-box .hb-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.highlight-box p{font-size:14px;color:var(--dark-grey);line-height:1.7;margin:0;}
+.highlight-box strong{color:var(--black);}
+.warning-box{background:#fff8f4;border-left:4px solid var(--orange);border-top:1px solid rgba(232,93,26,.2);border-right:1px solid rgba(232,93,26,.2);border-bottom:1px solid rgba(232,93,26,.2);padding:18px 22px;margin:24px 0;border-radius:0 4px 4px 0;display:flex;gap:14px;}
+.warning-box .icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.warning-box p{font-size:14px;color:#7a3000;line-height:1.65;margin:0;}
+.warning-box strong{color:#5a2200;}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0;}.data-table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px;}
+.data-table thead tr{background:var(--black);}
+.data-table thead th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);padding:12px 16px;text-align:left;}
+.data-table thead th.right{text-align:right;}
+.data-table tbody tr{border-bottom:1px solid var(--border);transition:background .15s;}
+.data-table tbody tr:hover{background:var(--card-bg);}
+.data-table tbody td{padding:12px 16px;color:var(--dark-grey);font-size:14px;}
+.data-table tbody td.right{text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--black);}
+.data-table tfoot tr{background:var(--off-white);border-top:2px solid var(--black);}
+.data-table tfoot td{padding:14px 16px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:var(--black);text-transform:uppercase;letter-spacing:.5px;}
+.data-table tfoot td.right{text-align:right;font-size:20px;color:var(--orange);}
+.data-table .orange{color:var(--orange);font-weight:700;}
+.data-table .muted{color:var(--mid-grey);font-style:italic;font-size:13px;}
+.phases{display:flex;flex-direction:column;gap:0;margin:28px 0;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.phase-item{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--border);}
+.phase-item:last-child{border-bottom:none;}
+.phase-date{background:var(--black);padding:18px 20px;display:flex;flex-direction:column;justify-content:center;}
+.phase-date .month{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:1px;color:var(--orange);line-height:1.2;}
+.phase-date .year{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:1px;}
+.phase-content{padding:16px 20px;background:var(--white);}
+.phase-content .phase-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.5px;color:var(--black);margin-bottom:6px;}
+.phase-content ul{list-style:none;padding:0;}
+.phase-content ul li{font-size:13px;color:var(--dark-grey);padding:2px 0 2px 14px;position:relative;line-height:1.5;}
+.phase-content ul li::before{content:'→';position:absolute;left:0;color:var(--orange);font-size:11px;}
+.entity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:28px 0;}
+.entity-card{border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.entity-card-header{background:var(--black);padding:16px 20px;display:flex;align-items:center;gap:12px;}
+.entity-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.entity-dot.orange{background:var(--orange);}
+.entity-dot.white{background:rgba(255,255,255,.5);}
+.entity-dot.grey{background:rgba(255,255,255,.2);}
+.entity-card-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:1px;color:var(--white);line-height:1;}
+.entity-card-sub{font-size:10px;color:rgba(255,255,255,.4);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.entity-card-body{padding:16px 20px;background:var(--card-bg);}
+.entity-stat{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.entity-stat:last-child{border-bottom:none;}
+.entity-stat .stat-label{color:var(--mid-grey);}
+.entity-stat .stat-value{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;color:var(--black);}
+.entity-stat .stat-value.orange{color:var(--orange);}
+.pl-section{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:24px 0;}
+.pl-section-title{background:var(--black);padding:12px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.pl-row{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;border-bottom:1px solid var(--border);font-size:14px;flex-wrap:wrap;gap:4px;}
+.pl-row:last-child{border-bottom:none;}
+.pl-row.subtotal{background:rgba(0,0,0,.03);font-weight:600;color:var(--black);}
+.pl-row.total{background:var(--black);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.5px;color:var(--white);border-bottom:none;}
+.pl-row .pl-label{color:var(--dark-grey);}
+.pl-row .pl-value{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;color:var(--black);}
+.pl-row.total .pl-value{color:var(--orange);}
+.pl-row .pl-value.neg{color:#c0392b;}
+.pl-row .pl-value.orange{color:var(--orange);}
+.tag{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-right:6px;}
+.tag.orange{background:rgba(232,93,26,.12);color:var(--orange);}
+.tag.black{background:var(--black);color:var(--white);}
+.tag.grey{background:var(--light-grey);color:var(--dark-grey);}
+.sh3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;letter-spacing:.5px;margin:32px 0 16px;color:var(--black);}
+footer{background:var(--black);padding:40px 32px;}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;}
+.footer-note{font-size:12px;color:rgba(255,255,255,.25);line-height:1.7;max-width:420px;}
+.footer-note strong{color:rgba(255,255,255,.4);}
+@media(max-width:640px){header{padding:0 16px;}.hero{padding:40px 16px 36px;}.hero::after{display:none;}.kpi-strip{grid-template-columns:repeat(2,1fr);padding:0 16px;}.section-nav{padding:0 16px;}.section{padding:44px 16px;}.phase-item{grid-template-columns:100px 1fr;}.entity-grid{grid-template-columns:1fr;}footer{padding:28px 16px;}.pl-row{flex-wrap:wrap;gap:4px;}.pl-row .pl-value{font-size:14px;}.highlight-box,.warning-box{padding:14px 16px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div>
+      <div class="logo-text">Point 2000</div>
+      <div class="logo-sub">Progetto di Ristrutturazione</div>
+    </div>
+  </div>
+  <div class="header-tag">Aprile 2026 — Confidenziale</div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Documento Strategico</div>
+  <h1>RISTRUTTURAZIONE<br><span class="orange">SOCIETARIA</span></h1>
+  <div class="hero-subtitle">Da SSD a Gruppo Commerciale — Entro il 31.12.2026</div>
+  <p class="hero-desc">Trasformazione di Point 2000 SSD in SRL commerciale, separazione dell'attività sportiva in Newco SSD, riconsegna dell'usufrutto e ottimizzazione della struttura di gruppo per la distribuzione degli utili dal 2027.</p>
+  <div class="hero-actions">
+    <a href="report_srl_ssd_immobiliare_v5_4.xlsx" download class="btn-primary">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Scarica Business Plan
+    </a>
+    <a href="#cronologia" class="btn-outline">Vedi Cronologia</a>
+    <a href="tariffe.html" class="btn-outline">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      Tariffe Orarie
+    </a>
+    <a href="personale.html" class="btn-outline">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Costo Personale
+    </a>
+    <a href="point2000_ristrutturazione_print.pdf" download class="btn-outline" style="border-color:#888;color:#888;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Stampa / PDF
+    </a>
+  </div>
+</div>
+
+<div class="kpi-strip">
+  <div class="kpi-item"><div class="kpi-label">Ricavi Gruppo</div><div class="kpi-value">€2,4M</div><div class="kpi-note">Ricavi esterni consolidati</div></div>
+  <div class="kpi-item"><div class="kpi-label">Utile Netto SRL</div><div class="kpi-value">€368K</div><div class="kpi-note">Dal 2027 — distribuibile</div></div>
+  <div class="kpi-item"><div class="kpi-label">EBITDA SRL</div><div class="kpi-value">40%</div><div class="kpi-note">Su ricavi Point 2000 SRL</div></div>
+  <div class="kpi-item"><div class="kpi-label">Capitale Post-Aumento</div><div class="kpi-value">€493K</div><div class="kpi-note">Da €20K — aumento gratuito</div></div>
+  <div class="kpi-item"><div class="kpi-label">PN Holding (2028)</div><div class="kpi-value">~€861K</div><div class="kpi-note">Post conferimento quote</div></div>
+</div>
+
+<nav class="section-nav">
+  <a href="#trasformazione" class="nav-pill">01 — Trasformazione</a>
+  <a href="#usufrutto" class="nav-pill">02 — Usufrutto</a>
+  <a href="#struttura" class="nav-pill">03 — Struttura Gruppo</a>
+  <a href="#numeri" class="nav-pill">04 — I Numeri</a>
+  <a href="#holding" class="nav-pill">05 — Holding</a>
+  <a href="#cronologia" class="nav-pill">06 — Cronologia</a>
+</nav>
+
+<!-- 01 TRASFORMAZIONE -->
+<section class="section" id="trasformazione">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title-block">
+      <div class="section-label">Operazione Principale</div>
+      <h2 class="section-title">Trasformazione<br>SSD → SRL</h2>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>L'obiettivo è trasformare Point 2000 SRL Società Sportiva Dilettantistica in SRL commerciale ordinaria <strong>entro il 31 dicembre 2026</strong>, eliminando la qualifica sportiva dilettantistica e rendendo la società pienamente commerciale con possibilità di distribuzione degli utili ai soci.</p>
+    <p>La trasformazione è necessaria su tre fronti contemporaneamente: <strong>obiettivo distributivo</strong> (gli utili devono poter uscire), <strong>obiettivo strutturale</strong> (apertura a investitori esterni), <strong>obiettivo di compliance</strong> (il D.Lgs. 36/2021 prevede cancellazione d'ufficio dal RNASD per attività commerciale prevalente protratta per due esercizi consecutivi).</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Fondamento Legale — CNN Notizie n. 171, Settembre 2024</div>
+    <p>Il Consiglio Nazionale del Notariato qualifica il passaggio SSD → SRL come <strong>trasformazione omogenea</strong> — non eterogenea — in quanto non muta il modello organizzativo societario ma solo lo scopo sociale. Questo elimina i vincoli procedurali più gravosi: nessun periodo di attesa di 60 giorni per l'opposizione dei creditori (art. 2500-nonies c.c.). L'art. 6 D.Lgs. 36/2021 conferma la separabilità tra forma SRL e qualifica sportiva.</p>
+  </div>
+
+
+
+  <h3 class="sh3">Riserve alla Data di Trasformazione</h3>
+
+  <div class="prose"><p>Tutto il patrimonio netto accumulato in regime SSD entra nella nuova SRL come <strong>riserva non distribuibile</strong> (art. 8 D.Lgs. 36/2021). Il vincolo è civilistico — non fiscale — e non si rimuove pagando un'imposta sostitutiva al 24%.</p></div>
+
+  <div class="table-wrap"><table class="data-table">
+    <thead><tr><th>Voce</th><th>Note</th><th class="right">Importo</th></tr></thead>
+    <tbody>
+      <tr><td>Riserva legale</td><td class="muted">Accumulata in regime SSD</td><td class="right">€7.619</td></tr>
+      <tr><td>Riserva straordinaria</td><td class="muted">Accumulata in regime SSD</td><td class="right">€113.630</td></tr>
+      <tr><td>Utile esercizio 2025</td><td class="muted">Bilancio approvato</td><td class="right">€102.212</td></tr>
+      <tr><td>Utile stimato 2026</td><td class="muted">Fino alla data di trasformazione</td><td class="right">€250.000</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="2">Totale Patrimonio Netto Vincolato</td><td class="right">€473.461</td></tr></tfoot>
+  </table></div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Aumento Gratuito del Capitale Sociale</div>
+    <p>Le riserve vincolate vengono imputate ad aumento gratuito del capitale sociale — operazione ammessa e non costituisce distribuzione ai soci. Il capitale passa da <strong>€20.000 a €493.000</strong>. Un capitale di quasi mezzo milione migliora radicalmente il profilo patrimoniale percepito da banche, investitori e controparti. Dal 1° gennaio 2027 tutti gli utili della SRL sono liberamente distribuibili dopo IRES (24%).</p>
+  </div>
+
+  <h3 class="sh3">Fasi Operative</h3>
+  <div class="phases">
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Giu–Ago</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Preparazione e Istruttoria</div>
+        <ul>
+          <li>Due diligence fiscale pre-trasformazione con commercialista esperto</li>
+          <li>Verifica statuto per clausole ostative</li>
+          <li>Avvio trattativa con BPM per accollo mutuo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Set–Ott</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Delibera e Documentazione</div>
+        <ul>
+          <li>Redazione nuovo statuto SRL commerciale ordinaria</li>
+          <li>Situazione patrimoniale straordinaria di riferimento</li>
+          <li>Delibera assembleare con maggioranza qualificata</li>
+          <li>Aumento gratuito capitale sociale a €493.000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Ott–Nov</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Atto Notarile e Pubblicità</div>
+        <ul>
+          <li>Atto pubblico notarile di modifica statutaria</li>
+          <li>Deposito Registro delle Imprese entro 30 giorni</li>
+          <li>Cancellazione dal RNASD</li>
+          <li>Riconsegna usufrutto e accollo mutuo coordinati</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Nov–Dic</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Go-Live Commerciale</div>
+        <ul>
+          <li>Comunicazione AdE — cambio regime fiscale</li>
+          <li>Adeguamento sistema IVA — tutte le prestazioni imponibili</li>
+          <li>Aggiornamento contratti utenti e sistemi Adyen/GoCardless</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 USUFRUTTO -->
+<section class="section" id="usufrutto">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title-block">
+      <div class="section-label">Pulizia Patrimoniale</div>
+      <h2 class="section-title">Riconsegna<br>dell'Usufrutto</h2>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Nel 2023 Point 2000 ha acquistato da Ojetti 134 SRL un nuovo usufrutto oneroso sull'immobile di Via Ugo Ojetti 134 — valore <strong>€1.500.000</strong>, decorrenza 28 ottobre 2026, scadenza 31 dicembre 2031 — pagato con acconto iniziale e rate trimestrali da €40.000. Gli importi già versati coincidono con il <strong>debito residuo del mutuo BPM (~€900.000)</strong>, per il quale Ojetti 134 SRL è già garante come terzo datore di ipoteca.</p>
+  </div>
+  <div class="highlight-box">
+    <div class="hb-label">Effetto sul Bilancio</div>
+    <p><strong>(1)</strong> Eliminazione ammortamento residuo vecchio usufrutto (~€547.000/anno, che cessa al 31.12.2026). <strong>(2)</strong> Mancata iscrizione del nuovo usufrutto da €1,5M nell'attivo, con eliminazione degli ammortamenti futuri (~€300.000/anno per 2027–2031). Stato patrimoniale radicalmente più leggibile e appetibile per investitori. Il rapporto con l'immobile viene ridefinito su base puramente contrattuale attraverso un canone di locazione con Ojetti 134 SRL.</p>
+  </div>
+  <div class="prose"><p>In compensazione, Ojetti 134 SRL restituisce gli importi già versati tramite <strong>accollo del mutuo BPM</strong> — partita di pari importo che consente una compensazione sostanziale, con effetto netto quasi nullo sull'esposizione finanziaria del gruppo.</p></div>
+  <div class="warning-box">
+    <div class="icon">⚠</div>
+    <p><strong>Consenso BPM obbligatorio.</strong> L'accollo del mutuo richiede il consenso formale della banca — non è un'operazione perfezionabile tra le sole parti private. La trattativa va avviata <strong>entro giugno 2026</strong> per rispettare il timing complessivo dell'operazione.</p>
+  </div>
+</section>
+
+<!-- 03 STRUTTURA -->
+<section class="section" id="struttura">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <div class="section-title-block">
+      <div class="section-label">Architettura Operativa</div>
+      <h2 class="section-title">Struttura<br>a Tre Entità</h2>
+    </div>
+  </div>
+  <div class="prose"><p>A regime il gruppo si articola su tre soggetti giuridici con ruoli distinti e non sovrapposti, ciascuno ottimizzato per la propria natura fiscale e operativa.</p></div>
+
+  <div class="entity-grid">
+    <div class="entity-card">
+      <div class="entity-card-header"><div class="entity-dot orange"></div><div><div class="entity-card-title">Point 2000 SRL</div><div class="entity-card-sub">Entità Commerciale</div></div></div>
+      <div class="entity-card-body">
+        <div class="entity-stat"><span class="stat-label">Ricavi diretti</span><span class="stat-value orange">€1.700.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Ricavi intercompany</span><span class="stat-value">€430.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Totale ricavi</span><span class="stat-value">€2.130.000</span></div>
+        <div class="entity-stat"><span class="stat-label">EBITDA</span><span class="stat-value orange">€861.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Utile netto</span><span class="stat-value orange">€368.000</span></div>
+      </div>
+    </div>
+    <div class="entity-card">
+      <div class="entity-card-header"><div class="entity-dot white"></div><div><div class="entity-card-title">Newco SSD</div><div class="entity-card-sub">Entità Sportiva</div></div></div>
+      <div class="entity-card-body">
+        <div class="entity-stat"><span class="stat-label">Ricavi sportivi</span><span class="stat-value">€700.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Personale sportivo</span><span class="stat-value">€250.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Canone + servizi SRL</span><span class="stat-value">€430.000</span></div>
+        <div class="entity-stat"><span class="stat-label">EBITDA obiettivo</span><span class="stat-value">Break-even</span></div>
+        <div class="entity-stat"><span class="stat-label">IVA non detraibile</span><span class="stat-value" style="color:var(--warning)">€94.600</span></div>
+      </div>
+    </div>
+    <div class="entity-card">
+      <div class="entity-card-header"><div class="entity-dot grey"></div><div><div class="entity-card-title">Ojetti 134 SRL</div><div class="entity-card-sub">Entità Immobiliare</div></div></div>
+      <div class="entity-card-body">
+        <div class="entity-stat"><span class="stat-label">Canone locazione</span><span class="stat-value">€300.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Servizi impianti</span><span class="stat-value">€150.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Totale ricavi</span><span class="stat-value">€450.000</span></div>
+        <div class="entity-stat"><span class="stat-label">EBIT</span><span class="stat-value">€270.000</span></div>
+        <div class="entity-stat"><span class="stat-label">Utile netto</span><span class="stat-value orange">€205.000</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Incasso Centralizzato</div>
+    <p>Point 2000 SRL gestisce l'incasso per entrambe le entità via Adyen e GoCardless. Il sistema distingue automaticamente la tipologia di servizio ed emette lo scontrino a nome dell'entità corretta. Le somme di competenza Newco SSD vengono riversate periodicamente al netto dei corrispettivi intercompany. Richiede <strong>contratto di mandato formale</strong> e riconciliazioni periodiche documentate.</p>
+  </div>
+
+  <div class="warning-box">
+    <div class="icon">⚠</div>
+    <p><strong>Contratti intercompany — punto critico.</strong> Canone spazi (€200.000) + servizi (€230.000) = €430.000, pari al <strong>61% dei ricavi della SSD</strong>. Devono essere valorizzati al principio di libera concorrenza con perizia documentata. Corrispettivi troppo elevati amplificano l'IVA non detraibile della SSD (€94.600) e rischiano contestazioni di transfer pricing.</p>
+  </div>
+</section>
+
+<!-- 04 NUMERI -->
+<section class="section" id="numeri">
+  <div class="section-header">
+    <div class="section-num">04</div>
+    <div class="section-title-block">
+      <div class="section-label">Business Plan — Dal 2027</div>
+      <h2 class="section-title">I Numeri<br>del Modello</h2>
+    </div>
+  </div>
+
+  <h3 class="sh3">Point 2000 SRL — Conto Economico</h3>
+  <div class="pl-section">
+    <div class="pl-section-title">Ricavi</div>
+    <div class="pl-row"><span class="pl-label">Ricavi diretti commerciali</span><span class="pl-value orange">€1.700.000</span></div>
+    <div class="pl-row"><span class="pl-label">Canone spazi da Newco SSD</span><span class="pl-value">€200.000</span></div>
+    <div class="pl-row"><span class="pl-label">Servizi a Newco SSD</span><span class="pl-value">€230.000</span></div>
+    <div class="pl-row subtotal"><span class="pl-label">Totale Ricavi SRL</span><span class="pl-value">€2.130.000</span></div>
+    <div class="pl-section-title">Costi Operativi</div>
+    <div class="pl-row"><span class="pl-label">Personale SRL</span><span class="pl-value neg">€380.000</span></div>
+    <div class="pl-row"><span class="pl-label">Energia, acqua, pulizie</span><span class="pl-value neg">€221.000</span></div>
+    <div class="pl-row"><span class="pl-label">Locazione + servizi impianti (Ojetti 134)</span><span class="pl-value neg">€450.000</span></div>
+    <div class="pl-row"><span class="pl-label">Marketing, software, manutenzione, commissioni</span><span class="pl-value neg">€120.000</span></div>
+    <div class="pl-row"><span class="pl-label">Compenso amm. + TFM</span><span class="pl-value neg">€31.000</span></div>
+    <div class="pl-row subtotal"><span class="pl-label">EBITDA</span><span class="pl-value orange">€861.000 (40%)</span></div>
+    <div class="pl-row"><span class="pl-label">Ammortamenti 2027</span><span class="pl-value neg">€350.000</span></div>
+    <div class="pl-row" style="background:#fff8f4;"><span class="pl-label" style="color:#b85c00;font-size:12px;">↳ Ammortamenti 2026 SSD (pre-trasformazione)</span><span class="pl-value neg" style="font-size:13px;color:#b85c00;">€269.548</span></div>
+    <div class="pl-row subtotal"><span class="pl-label">EBIT</span><span class="pl-value">€511.000</span></div>
+    <div class="pl-row"><span class="pl-label">IRES 24% + IRAP 3,9%</span><span class="pl-value neg">€143.000</span></div>
+    <div class="pl-row total"><span class="pl-label">Utile Netto SRL</span><span class="pl-value">€368.000</span></div>
+  </div>
+
+  <h3 class="sh3">Consolidato di Gruppo</h3>
+  <div class="table-wrap"><table class="data-table">
+    <thead><tr><th>Entità</th><th class="right">Ricavi Esterni</th><th class="right">EBITDA</th><th class="right">Utile Netto</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Point 2000 SRL</strong> <span class="tag orange">Commerciale</span></td><td class="right">€1.700.000</td><td class="right">€861.000</td><td class="right orange">€368.000</td></tr>
+      <tr><td><strong>Newco SSD</strong> <span class="tag grey">Sportiva</span></td><td class="right">€700.000</td><td class="right">€0</td><td class="right">—</td></tr>
+      <tr><td><strong>Ojetti 134 SRL</strong> <span class="tag black">Immobiliare</span></td><td class="right">—</td><td class="right">€370.000</td><td class="right orange">€205.000</td></tr>
+    </tbody>
+    <tfoot><tr><td><strong>Consolidato Gruppo</strong></td><td class="right">€2.400.000</td><td class="right">€1.342.000</td><td class="right">€573.000</td></tr></tfoot>
+  </table></div>
+
+  <div class="highlight-box" style="margin-top:8px;">
+    <div class="hb-label">IVA — Punti di Attenzione</div>
+    <p>Point 2000 SRL versa IVA netta stimata in <strong>€236.000 annui</strong> — da pianificare nella gestione della liquidità mensile. La Newco SSD non può detrarre l'IVA pagata sui contratti intercompany: <strong>€94.600 annui di costo finanziario netto</strong> che grava sull'entità sportiva. Da considerare nel dimensionamento finale dei corrispettivi intercompany.</p>
+  </div>
+</section>
+
+<!-- 05 HOLDING -->
+<section class="section" id="holding">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-title-block">
+      <div class="section-label">Fase 2028</div>
+      <h2 class="section-title">Conferimento<br>alla Holding</h2>
+    </div>
+  </div>
+  <div class="prose">
+    <p>Dopo almeno un esercizio completo come SRL commerciale, le quote vengono trasferite dalla persona fisica Maurizio Taruggi a <strong>Ready 2 Digital SRL</strong> tramite conferimento in regime di <strong>realizzo controllato</strong> (art. 177 TUIR) — a valori contabili, senza emersione di plusvalenza tassabile.</p>
+    <p>Valorizzare Point 2000 a valori di mercato (potenzialmente €1,5–2M con questi utili) genererebbe una tassazione insostenibile in capo alla persona fisica. La condizione per il realizzo controllato — che la holding riceva una partecipazione di controllo — è pienamente soddisfatta con il 100%.</p>
+  </div>
+
+  <h3 class="sh3">Patrimonio Netto al Momento del Conferimento (Fine 2027)</h3>
+  <div class="table-wrap"><table class="data-table">
+    <thead><tr><th>Voce</th><th>Note</th><th class="right">Importo</th></tr></thead>
+    <tbody>
+      <tr><td>Capitale sociale post-aumento gratuito</td><td class="muted">Include riserve vincolate ex SSD</td><td class="right">€493.000</td></tr>
+      <tr><td>Utile netto 2027</td><td class="muted">Liberamente distribuibile — da business plan</td><td class="right">€368.000</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="2">Patrimonio Netto Stimato al 31.12.2027</td><td class="right">~€861.000</td></tr></tfoot>
+  </table></div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Vantaggio Fiscale Holding — Regime PEX</div>
+    <p>I dividendi distribuiti da Point 2000 SRL alla holding godono della <strong>participation exemption</strong>: solo il 5% del dividendo concorre al reddito imponibile della holding, con imposta effettiva di circa <strong>1,2% sul lordo</strong> — contro il 26% della persona fisica. Su €368.000 di utile distribuibile, il risparmio fiscale annuo stimato è di circa <strong>€90.000</strong>.</p>
+  </div>
+</section>
+
+<!-- 06 CRONOLOGIA -->
+<section class="section" id="cronologia">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div class="section-title-block">
+      <div class="section-label">Piano Operativo</div>
+      <h2 class="section-title">Cronologia<br>delle Operazioni</h2>
+    </div>
+  </div>
+  <div class="phases">
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Entro Giugno</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Avvio e Istruttoria</div>
+        <ul>
+          <li>Avvio trattativa BPM per accollo mutuo</li>
+          <li>Incarico commercialista per due diligence pre-trasformazione</li>
+          <li>Verifica statuto Point 2000 per clausole ostative</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Entro Settembre</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Strutturazione</div>
+        <ul>
+          <li>Nuovo statuto SRL commerciale ordinaria</li>
+          <li>Situazione patrimoniale straordinaria</li>
+          <li>Termini riconsegna usufrutto con Ojetti 134 SRL</li>
+          <li>Prima bozza contratti intercompany con analisi congruità</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Ott–Nov</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Esecuzione</div>
+        <ul>
+          <li>Delibera assembleare + aumento gratuito capitale</li>
+          <li>Atto notarile di modifica statutaria</li>
+          <li>Riconsegna usufrutto e accollo mutuo coordinati</li>
+          <li>Deposito Registro Imprese — cancellazione RNASD</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Nov–Dic</div><div class="year">2026</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Go-Live Commerciale</div>
+        <ul>
+          <li>Adempimenti fiscali — cambio regime IVA</li>
+          <li>Aggiornamento contratti utenti</li>
+          <li>Adeguamento sistemi Adyen/GoCardless</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">Q1</div><div class="year">2027</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Newco SSD Operativa</div>
+        <ul>
+          <li>Definizione compagine sociale Newco SSD</li>
+          <li>Stipula contratti intercompany definitivi</li>
+          <li>Avvio modello a doppia entità con incasso centralizzato</li>
+        </ul>
+      </div>
+    </div>
+    <div class="phase-item">
+      <div class="phase-date"><div class="month">2028</div><div class="year">Sul Bilancio 2027</div></div>
+      <div class="phase-content">
+        <div class="phase-title">Conferimento Holding</div>
+        <ul>
+          <li>Conferimento quote Point 2000 SRL → Ready 2 Digital SRL</li>
+          <li>Regime art. 177 TUIR — realizzo controllato a valori contabili</li>
+          <li>PN holding post-conferimento stimato: ~€861.000</li>
+          <li>Attivazione regime PEX sui dividendi futuri</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text" style="color:white;font-size:22px;">Point 2000</div>
+          <div class="logo-sub" style="opacity:.5;">Via Ugo Ojetti 134 — 00137 Roma</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">
+      <strong>Documento confidenziale — Aprile 2026.</strong> Ha natura di sintesi strategica e non sostituisce la consulenza legale e fiscale specialistica. I valori economici sono proiezioni basate sul business plan allegato e sul bilancio provvisorio 2025. Tutte le operazioni richiedono il coinvolgimento di notaio, commercialista esperto in operazioni straordinarie e consulente finanziario per la trattativa bancaria.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point 2000 — Tariffe Orarie 2028</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#e85d1a;--orange-dark:#c44d10;--black:#111111;--white:#ffffff;--off-white:#f5f4f2;--light-grey:#e8e8e8;--mid-grey:#888888;--dark-grey:#444444;--border:#e0e0e0;--card-bg:#f9f8f6;}
+*{margin:0;padding:0;box-sizing:border-box;}html,body{overflow-x:hidden;max-width:100vw;}html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;}
+header{background:var(--white);border-bottom:3px solid var(--orange);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:38px;height:38px;background:var(--orange);clip-path:polygon(20% 0%,80% 0%,100% 50%,80% 100%,20% 100%,0% 50%);flex-shrink:0;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:var(--black);line-height:1;}
+.logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+.nav-links{display:flex;gap:8px;}
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid-grey);text-decoration:none;border:1.5px solid var(--border);padding:6px 14px;border-radius:2px;transition:color .2s,border-color .2s;}
+.back-btn:hover{color:var(--orange);border-color:var(--orange);}
+.hero{background:var(--white);padding:50px 32px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::after{content:'€/H';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:160px;color:rgba(0,0,0,0.03);line-height:1;pointer-events:none;user-select:none;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--orange);}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(42px,7vw,80px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;color:var(--black);margin-bottom:6px;}
+.hero h1 .orange{color:var(--orange);}
+.hero-subtitle{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(15px,2.5vw,21px);text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:16px;}
+.hero-desc{font-size:14px;color:var(--dark-grey);max-width:580px;line-height:1.7;}
+.kpi-strip{background:var(--black);padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+.kpi-item{padding:20px 18px;border-right:1px solid rgba(255,255,255,0.08);position:relative;}
+.kpi-item:last-child{border-right:none;}
+.kpi-item::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--orange);transition:width .4s;}
+.kpi-item:hover::before{width:100%;}
+.kpi-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;}
+.kpi-value{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;line-height:1;color:var(--orange);}
+.kpi-note{font-size:10px;color:rgba(255,255,255,0.3);margin-top:3px;}
+.section-nav{background:var(--off-white);border-bottom:1px solid var(--border);padding:0 32px;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.nav-pill{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid-grey);padding:14px 16px;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;}
+.nav-pill:hover{color:var(--orange);border-color:var(--orange);}
+.section{padding:52px 32px;border-bottom:1px solid var(--border);max-width:1020px;margin:0 auto;}
+.section-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px;}
+.section-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;line-height:0.85;color:rgba(0,0,0,0.05);flex-shrink:0;user-select:none;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(24px,4vw,38px);text-transform:uppercase;line-height:0.95;letter-spacing:-.5px;color:var(--black);}
+.prose{font-size:14px;color:var(--dark-grey);line-height:1.75;margin-bottom:16px;}
+.prose strong{color:var(--black);font-weight:600;}
+.highlight-box{background:var(--card-bg);border-left:4px solid var(--orange);padding:16px 20px;margin:18px 0;border-radius:0 4px 4px 0;}
+.highlight-box .hb-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.highlight-box p{font-size:13px;color:var(--dark-grey);line-height:1.7;margin:0;}
+.highlight-box strong{color:var(--black);}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 8px;}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
+thead tr{background:var(--black);}
+thead th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);padding:10px 10px;text-align:right;white-space:nowrap;}
+thead th.l{text-align:left;min-width:170px;}
+thead th.c{text-align:center;}
+thead th.grp{text-align:center;font-size:10px;border-left:1px solid rgba(255,255,255,.12);}
+tbody tr{border-bottom:0.5px solid var(--border);}
+tbody tr:hover{background:var(--card-bg);}
+tbody tr.grp-row{background:var(--card-bg);border-top:1.5px solid var(--border);}
+tbody tr.grp-row td{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--black);padding:7px 10px;}
+tbody td{padding:5px 10px;text-align:right;color:var(--dark-grey);}
+tbody td.l{text-align:left;font-size:11px;padding-left:18px;}
+tbody td.mono{font-family:'Barlow Condensed',sans-serif;font-size:13px;}
+tbody td.c{text-align:center;}
+tbody td.m{color:var(--mid-grey);font-size:11px;font-style:italic;}
+tfoot tr{background:var(--off-white);border-top:2px solid var(--black);}
+tfoot td{padding:10px 10px;text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--black);}
+tfoot td.l{text-align:left;font-size:12px;}
+tfoot td.big{font-size:15px;color:var(--orange);}
+.pill{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:1px 6px;border-radius:2px;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0 18px;font-size:12px;color:var(--dark-grey);}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;display:inline-block;margin-right:5px;vertical-align:middle;}
+footer{background:var(--black);padding:36px 32px;}
+.footer-inner{max-width:1020px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;}
+.footer-note{font-size:12px;color:rgba(255,255,255,.25);line-height:1.7;max-width:480px;}
+.footer-note strong{color:rgba(255,255,255,.4);}
+@media(max-width:640px){header{padding:0 16px;}.hero{padding:36px 16px 32px;}.hero::after{display:none;}.kpi-strip{grid-template-columns:repeat(2,1fr);padding:0 16px;}.section-nav{padding:0 16px;}.section{padding:36px 16px;}footer{padding:24px 16px;}.nav-links{gap:4px;}.back-btn{font-size:10px;padding:5px 10px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div><div class="logo-text">Point 2000</div><div class="logo-sub">Tariffe Orarie 2028</div></div>
+  </div>
+  <div class="nav-links">
+    <a href="personale.html" class="back-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Costo Personale
+    </a>
+    <a href="index.html" class="back-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Report
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Analisi Operativa</div>
+  <h1>TARIFFE<br><span class="orange">ORARIE</span></h1>
+  <div class="hero-subtitle">Paga oraria / a lezione 2028 per scenario contrattuale</div>
+  <p class="hero-desc">Tariffe calcolate dai totali di ore/lezioni e importi nei rapportini Athletis. Per la SRL: tariffa attuale e tariffa 2028 nello scenario misto (P.IVA +10%, Cococo stesso netto). Per la Newco SSD: impatto della fine dell'agevolazione contributiva del 50%.</p>
+</div>
+
+<div class="kpi-strip">
+  <div class="kpi-item"><div class="kpi-label">SRL — collaboratori</div><div class="kpi-value">19</div><div class="kpi-note">scenario misto P.IVA + Cococo</div></div>
+  <div class="kpi-item"><div class="kpi-label">Newco SSD — collaboratori</div><div class="kpi-value">35</div><div class="kpi-note">fine agevolazione 50%</div></div>
+  <div class="kpi-item"><div class="kpi-label">Delta costo Newco</div><div class="kpi-value">+€11.768</div><div class="kpi-note">+13,1% su tutti</div></div>
+  <div class="kpi-item"><div class="kpi-label">Tipi di tariffa</div><div class="kpi-value">€/H e €/L</div><div class="kpi-note">ora e a lezione</div></div>
+</div>
+
+<nav class="section-nav">
+  <a href="#srl" class="nav-pill">01 — SRL: Scenario Misto</a>
+  <a href="#newco" class="nav-pill">02 — Newco SSD: Fine Agevolazione</a>
+</nav>
+
+<!-- ══ 01 SRL ══ -->
+<section class="section" id="srl">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title-block">
+      <div class="section-label">Point 2000 SRL</div>
+      <h2 class="section-title">Tariffe 2028<br>Scenario Misto</h2>
+    </div>
+  </div>
+
+  <div class="prose">La tariffa 2028 è calcolata moltiplicando quella attuale per il rapporto netto_nuovo/netto_attuale. Per chi va a <strong>P.IVA (+10%)</strong> la tariffa oraria/lezione sale proporzionalmente. Per chi resta in <strong>Cococo</strong> la tariffa netta rimane invariata ma il costo azienda per unità aumenta per via dell'INPS aziendale. Chi ha sia ore che lezioni (tipo "misto") mostra entrambe le tariffe separatamente.</div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Nota sulle colonne</div>
+    <p><strong>€/H att</strong> e <strong>€/L att</strong> = tariffa attuale per ora e per lezione. <strong>€/H new</strong> e <strong>€/L new</strong> = tariffa 2028 garantita al collaboratore (netto percepito). <strong>Caz/unit 2028</strong> = costo totale azienda per unità (ora o lezione), inclusi contributi — mostrato solo per chi ha un unico tipo di prestazione.</p>
+  </div>
+
+  <div class="legend">
+    <span><span class="leg-dot" style="background:#3B6D11;"></span> P.IVA — netto +10%</span>
+    <span><span class="leg-dot" style="background:#A32D2D;"></span> Cococo ordinario — netto invariato</span>
+    <span><span class="leg-dot" style="background:#B5D4F4;"></span> Tipo misto (H + L)</span>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="l" rowspan="2">Collaboratore</th>
+        <th class="c" rowspan="2">Tipo 2028</th>
+        <th rowspan="2">Ore H</th>
+        <th rowspan="2">Lez. L</th>
+        <th rowspan="2">Comp. annuo</th>
+        <th class="grp" colspan="2">Tariffa attuale</th>
+        <th class="grp" colspan="2">Tariffa 2028 (netto)</th>
+        <th rowspan="2">Caz/unit 2028</th>
+      </tr>
+      <tr>
+        <th style="border-left:1px solid rgba(255,255,255,.12)">€/H</th>
+        <th>€/L</th>
+        <th>€/H</th>
+        <th>€/L</th>
+      </tr>
+    </thead>
+    <tbody id="tSRL"></tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ══ 02 NEWCO ══ -->
+<section class="section" id="newco">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title-block">
+      <div class="section-label">Newco SSD</div>
+      <h2 class="section-title">Fine Agevolazione<br>50% Contributi</h2>
+    </div>
+  </div>
+
+  <div class="prose">La tariffa netta percepita dai collaboratori rimane invariata. L'aumento del costo azienda (+13,1% uniforme) è dovuto esclusivamente al ripristino della quota INPS societaria piena (26% invece di 13%). La colonna <strong>Costo az./unit 2028</strong> mostra quanto pagherà la Newco per ogni ora o lezione erogata.</div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="l">Collaboratore</th>
+        <th>Ore H</th>
+        <th>Lez. L</th>
+        <th>Comp. annuo</th>
+        <th>€/H netta</th>
+        <th>€/L netta</th>
+        <th>Caz. attuale</th>
+        <th>Caz/unit att.</th>
+        <th>Caz. 2028</th>
+        <th>Caz/unit 2028</th>
+        <th>Δ costo</th>
+        <th>Δ %</th>
+      </tr>
+    </thead>
+    <tbody id="tNC"></tbody>
+    <tfoot id="tNCf"></tfoot>
+  </table>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo"><div class="logo-icon"></div>
+        <div><div class="logo-text" style="color:white;">Point 2000</div><div class="logo-sub" style="opacity:.5;">Via Ugo Ojetti 134 — 00137 Roma</div></div>
+      </div>
+    </div>
+    <div class="footer-note">
+      <strong>Documento confidenziale — Aprile 2026.</strong> Tariffe calcolate dai rapportini riepilogo Athletis Cloud (colonna Importo Lordo ÷ Q.tà). Per chi ha sia ore che lezioni le tariffe sono calcolate separatamente per tipo. Agevolazione INPS stimata al 50% dell'aliquota 26% = 13% effettivo. Dati da verificare con il consulente del lavoro.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+const fh=v=>v!=null&&!isNaN(v)?'€'+parseFloat(v).toFixed(2):'—';
+const fn=v=>'€'+Math.round(v).toLocaleString('it-IT');
+const pill=(l,bg,c)=>'<span class="pill" style="background:'+bg+';color:'+c+';">'+l+'</span>';
+
+// ── SRL ──
+const SRL=[
+ {n:"Palermo Valerio",     tc:"piva",  oH:287.0, lL:651.0, imp:14699.5, tipo:"misto", th_a:7.39, tl_a:19.32, th_n:8.13, tl_n:21.25, caz_n:null},
+ {n:"Pagliaccia Giulia",   tc:"piva",  oH:0,     lL:620.0, imp:11834,   tipo:"L",    th_a:null, tl_a:19.09, th_n:null, tl_n:21.00, caz_n:23.48},
+ {n:"Fiorita Filippo",     tc:"piva",  oH:840.0, lL:352.0, imp:11532,   tipo:"misto",th_a:7.00, tl_a:16.06, th_n:7.70, tl_n:17.67, caz_n:null},
+ {n:"Di Censi Manuel",     tc:"piva",  oH:5.0,   lL:601.0, imp:10871,   tipo:"misto",th_a:7.00, tl_a:18.03, th_n:7.70, tl_n:19.83, caz_n:null},
+ {n:"Battilana Barbara",   tc:"piva",  oH:0,     lL:653.0, imp:10616,   tipo:"L",    th_a:null, tl_a:16.26, th_n:null, tl_n:17.89, caz_n:19.65},
+ {n:"Mariottini Miriana",  tc:"piva",  oH:0,     lL:494.0, imp:8296,    tipo:"L",    th_a:null, tl_a:16.79, th_n:null, tl_n:18.47, caz_n:21.17},
+ {n:"Bonfante Vincenza",   tc:"piva",  oH:400.42,lL:277.0, imp:8093.36, tipo:"misto",th_a:9.14, tl_a:16.00, th_n:10.05,tl_n:17.60, caz_n:null},
+ {n:"Bertani Federica",    tc:"piva",  oH:0,     lL:459.0, imp:7344,    tipo:"L",    th_a:null, tl_a:16.00, th_n:null, tl_n:17.60, caz_n:19.27},
+ {n:"Tufano Annabella",    tc:"piva",  oH:0,     lL:395.0, imp:6320,    tipo:"L",    th_a:null, tl_a:16.00, th_n:null, tl_n:17.60, caz_n:19.85},
+ {n:"La Banca Alessia",    tc:"cococo",oH:143.17,lL:277.0, imp:5157.17, tipo:"misto",th_a:7.00, tl_a:15.00, th_n:7.00, tl_n:15.00, caz_n:null},
+ {n:"Pascolat Paola",      tc:"cococo",oH:0,     lL:231.0, imp:3782,    tipo:"L",    th_a:null, tl_a:16.37, th_n:null, tl_n:16.37, caz_n:22.80},
+ {n:"Re Alessandra",       tc:"cococo",oH:43.0,  lL:178.0, imp:3773,    tipo:"misto",th_a:7.00, tl_a:19.51, th_n:7.00, tl_n:19.51, caz_n:null},
+ {n:"Capparelli Eleonora", tc:"cococo",oH:0,     lL:182.0, imp:3402,    tipo:"L",    th_a:null, tl_a:18.69, th_n:null, tl_n:18.69, caz_n:29.12},
+ {n:"Ferrari Isabella",    tc:"cococo",oH:0,     lL:77.0,  imp:1540,    tipo:"L",    th_a:null, tl_a:20.00, th_n:null, tl_n:20.00, caz_n:27.94},
+ {n:"Zagaria Beatrice",    tc:"cococo",oH:231.75,lL:0,     imp:1622.25, tipo:"H",    th_a:7.00, tl_a:null,  th_n:7.00, tl_n:null,  caz_n:8.77},
+ {n:"Pensini Arianna",     tc:"cococo",oH:0,     lL:68.0,  imp:1224,    tipo:"L",    th_a:null, tl_a:18.00, th_n:null, tl_n:18.00, caz_n:22.28},
+ {n:"Blasi Alessandro",    tc:"cococo",oH:156.0, lL:1.0,   imp:1112,    tipo:"misto",th_a:7.00, tl_a:20.00, th_n:7.00, tl_n:20.00, caz_n:null},
+ {n:"Portale Alice",       tc:"cococo",oH:0,     lL:68.0,  imp:1020,    tipo:"L",    th_a:null, tl_a:15.00, th_n:null, tl_n:15.00, caz_n:15.40},
+ {n:"Pino Micol",          tc:"cococo",oH:0,     lL:35.0,  imp:700,     tipo:"L",    th_a:null, tl_a:20.00, th_n:null, tl_n:20.00, caz_n:25.54},
+];
+
+const bSRL=document.getElementById('tSRL');
+SRL.forEach(r=>{
+ const ip=r.tc==='piva';
+ const col=ip?'#3B6D11':'#A32D2D';
+ const tp=ip?pill('P.IVA +10%','rgba(59,109,17,.12)','#27500A'):pill('Cococo','rgba(162,45,45,.12)','#791F1F');
+ const isMisto=r.tipo==='misto';
+ const rowBg=isMisto?'background:rgba(24,95,165,0.03);':'';
+ const tr=document.createElement('tr');
+ tr.setAttribute('style',rowBg);
+ const cazUnit=r.caz_n!=null?('<span style="color:'+col+';font-weight:700">€'+r.caz_n.toFixed(2)+'</span>'):'<span style="color:#bbb;font-size:10px;">—</span>';
+ tr.innerHTML=`
+  <td class="l">${r.n}</td>
+  <td class="c">${tp}</td>
+  <td class="mono" style="color:#888">${r.oH>0?r.oH.toLocaleString('it-IT')+'h':'—'}</td>
+  <td class="mono" style="color:#888">${r.lL>0?r.lL.toFixed(0)+'L':'—'}</td>
+  <td class="mono" style="color:#888">${fn(r.imp)}</td>
+  <td class="mono" style="color:#888;border-left:1px solid var(--border)">${fh(r.th_a)}</td>
+  <td class="mono" style="color:#888">${fh(r.tl_a)}</td>
+  <td class="mono" style="color:${col}">${fh(r.th_n)}</td>
+  <td class="mono" style="color:${col}">${fh(r.tl_n)}</td>
+  <td class="mono">${cazUnit}</td>`;
+ bSRL.appendChild(tr);
+});
+
+// ── NEWCO ──
+const NC=[
+ {n:"Baglio Emanuele",        oH:464.08,lL:0,    imp:4621.59, th:9.96, tl:null,  ca:5249.61, tca:11.31,c28:5937.23, tc28:12.79, d:687.61},
+ {n:"Barazzutti Andrea",      oH:116.67,lL:0,    imp:983.34,  th:8.43, tl:null,  ca:1116.96, tca:9.57, c28:1263.27, tc28:10.83, d:146.3},
+ {n:"Baroni Dario",           oH:143.5, lL:0,    imp:1541.5,  th:10.74,tl:null,  ca:1750.97, tca:12.20,c28:1980.32, tc28:13.80, d:229.35},
+ {n:"Basile Marco",           oH:26.83, lL:0,    imp:187.83,  th:7.00, tl:null,  ca:213.35,  tca:7.95, c28:241.30,  tc28:8.99,  d:27.95},
+ {n:"Bencivenga Sabina",      oH:878.5, lL:0,    imp:7953.26, th:9.05, tl:null,  ca:9034.02, tca:10.28,c28:10217.33,tc28:11.63, d:1183.31},
+ {n:"Boldrini Davide",        oH:339.5, lL:0,    imp:2376.5,  th:7.00, tl:null,  ca:2699.44, tca:7.95, c28:3053.02, tc28:8.99,  d:353.58},
+ {n:"Bonelli Silvano",        oH:555.58,lL:11.0, imp:5772.58, th:10.09,tl:15.00, ca:6557.01, tca:null, c28:7415.87, tc28:null,  d:858.86},
+ {n:"Bravi Alessandra",       oH:77.75, lL:0,    imp:632.2,   th:8.13, tl:null,  ca:718.11,  tca:9.24, c28:812.17,  tc28:10.45, d:94.06},
+ {n:"Cantoro Marco",          oH:448.5, lL:0,    imp:3538.16, th:7.89, tl:null,  ca:4018.96, tca:8.96, c28:4545.37, tc28:10.13, d:526.42},
+ {n:"Cariello Valerio",       oH:4.33,  lL:0,    imp:43.33,   th:10.00,tl:null,  ca:49.22,   tca:11.36,c28:55.66,   tc28:12.85, d:6.45},
+ {n:"Caruso Romina",          oH:339.67,lL:0,    imp:2748.54, th:8.09, tl:null,  ca:3122.03, tca:9.19, c28:3530.97, tc28:10.40, d:408.94},
+ {n:"Castaldo Andrea",        oH:57.5,  lL:0,    imp:460.0,   th:8.00, tl:null,  ca:522.51,  tca:9.09, c28:590.95,  tc28:10.28, d:68.44},
+ {n:"Cesselon Ambra",         oH:26.33, lL:2.0,  imp:308.27,  th:10.49,tl:16.00, ca:350.16,  tca:null, c28:396.03,  tc28:null,  d:45.87},
+ {n:"Cipollone Monica",       oH:38.67, lL:0,    imp:362.4,   th:9.37, tl:null,  ca:411.65,  tca:10.65,c28:465.56,  tc28:12.04, d:53.92},
+ {n:"Cortiula Alice",         oH:377.5, lL:0,    imp:2651.95, th:7.03, tl:null,  ca:3012.32, tca:7.98, c28:3406.88, tc28:9.02,  d:394.57},
+ {n:"D'Annunzio Giulia",      oH:639.5, lL:0,    imp:4580.45, th:7.16, tl:null,  ca:5202.88, tca:8.14, c28:5884.37, tc28:9.20,  d:681.49},
+ {n:"De Angelis Giada",       oH:121.67,lL:0,    imp:1119.3,  th:9.20, tl:null,  ca:1271.40, tca:10.45,c28:1437.93, tc28:11.82, d:166.53},
+ {n:"De Michelis Alessandro", oH:18.33, lL:0,    imp:128.33,  th:7.00, tl:null,  ca:145.77,  tca:7.95, c28:164.86,  tc28:8.99,  d:19.09},
+ {n:"De Stasio Elisa",        oH:571.83,lL:0,    imp:5184.3,  th:9.07, tl:null,  ca:5888.79, tca:10.30,c28:6660.12, tc28:11.65, d:771.34},
+ {n:"Di Spirito Matteo",      oH:158.0, lL:0,    imp:1161.5,  th:7.35, tl:null,  ca:1319.33, tca:8.35, c28:1492.15, tc28:9.44,  d:172.81},
+ {n:"Fabi Elisa",             oH:37.25, lL:0,    imp:308.73,  th:8.29, tl:null,  ca:350.68,  tca:9.41, c28:396.62,  tc28:10.65, d:45.93},
+ {n:"Fileni Alice",           oH:333.5, lL:0,    imp:2466.27, th:7.40, tl:null,  ca:2801.41, tca:8.40, c28:3168.35, tc28:9.50,  d:366.94},
+ {n:"Guerra Maria Nicole",    oH:495.58,lL:0,    imp:4033.25, th:8.14, tl:null,  ca:4581.32, tca:9.24, c28:5181.40, tc28:10.46, d:600.08},
+ {n:"Kobzova Jaroslava",      oH:29.58, lL:0,    imp:246.86,  th:8.34, tl:null,  ca:280.41,  tca:9.48, c28:317.13,  tc28:10.72, d:36.73},
+ {n:"Marziali Ginevra",       oH:30.33, lL:0,    imp:242.67,  th:8.00, tl:null,  ca:275.65,  tca:9.09, c28:311.75,  tc28:10.28, d:36.11},
+ {n:"Palmieri Giulia",        oH:673.5, lL:0,    imp:4821.6,  th:7.16, tl:null,  ca:5476.80, tca:8.13, c28:6194.17, tc28:9.20,  d:717.37},
+ {n:"Pastore Alice",          oH:101.5, lL:0,    imp:811.99,  th:8.00, tl:null,  ca:922.33,  tca:9.09, c28:1043.14, tc28:10.28, d:120.81},
+ {n:"Pugliese Stefania",      oH:737.92,lL:0,    imp:7442.88, th:10.09,tl:null,  ca:8454.28, tca:11.46,c28:9561.66, tc28:12.96, d:1107.37},
+ {n:"Quaglia Antonio",        oH:13.0,  lL:0,    imp:91.0,    th:7.00, tl:null,  ca:103.37,  tca:7.95, c28:116.91,  tc28:8.99,  d:13.54},
+ {n:"Riondino Stefano",       oH:211.92,lL:0,    imp:2208.42, th:10.42,tl:null,  ca:2508.52, tca:11.84,c28:2837.09, tc28:13.39, d:328.58},
+ {n:"Ruocco Simone",          oH:35.0,  lL:0,    imp:245.0,   th:7.00, tl:null,  ca:278.29,  tca:7.95, c28:314.74,  tc28:8.99,  d:36.45},
+ {n:"Spaccasassi Chiara",     oH:248.58,lL:0,    imp:2041.86, th:8.21, tl:null,  ca:2319.33, tca:9.33, c28:2623.12, tc28:10.55, d:303.79},
+ {n:"Staboli Riccardo",       oH:639.67,lL:0,    imp:5076.25, th:7.94, tl:null,  ca:5766.05, tca:9.01, c28:6521.31, tc28:10.19, d:755.26},
+ {n:"Veschi Sabrina",         oH:200.25,lL:0,    imp:1848.82, th:9.23, tl:null,  ca:2100.05, tca:10.49,c28:2375.13, tc28:11.86, d:275.07},
+ {n:"Zanela Caterina",        oH:121.67,lL:0,    imp:851.66,  th:7.00, tl:null,  ca:967.39,  tca:7.95, c28:1094.10, tc28:8.99,  d:126.71},
+];
+
+const bNC=document.getElementById('tNC');
+NC.forEach(r=>{
+ const isMisto=r.lL>0&&r.oH>0;
+ const tr=document.createElement('tr');
+ const tca=r.tca!=null?'€'+r.tca.toFixed(2):'<span class="m">—</span>';
+ const tc28=r.tc28!=null?('€'+r.tc28.toFixed(2)):'<span class="m">—</span>';
+ tr.innerHTML=`
+  <td class="l">${r.n}</td>
+  <td class="mono" style="color:#888">${r.oH>0?r.oH.toLocaleString('it-IT')+'h':'—'}</td>
+  <td class="mono" style="color:#888">${r.lL>0?r.lL.toFixed(0)+'L':'—'}</td>
+  <td class="mono" style="color:#888">${fn(r.imp)}</td>
+  <td class="mono" style="color:#888">${r.th!=null?'€'+r.th.toFixed(2):'—'}</td>
+  <td class="mono" style="color:#888">${r.tl!=null?'€'+r.tl.toFixed(2):'—'}</td>
+  <td class="mono" style="color:#185FA5">${fn(r.ca)}</td>
+  <td class="mono" style="color:#185FA5">${tca}</td>
+  <td class="mono" style="color:var(--orange);font-weight:700">${fn(r.c28)}</td>
+  <td class="mono" style="color:var(--orange);font-weight:700">${tc28}</td>
+  <td class="mono" style="color:#c0392b">+${Math.round(r.d).toLocaleString('it-IT')}</td>
+  <td class="mono" style="color:#c0392b">+13,1%</td>`;
+ bNC.appendChild(tr);
+});
+
+const totCA=NC.reduce((a,r)=>a+r.ca,0);
+const totC28=NC.reduce((a,r)=>a+r.c28,0);
+const totD=NC.reduce((a,r)=>a+r.d,0);
+const totImp=NC.reduce((a,r)=>a+r.imp,0);
+const tf=document.getElementById('tNCf');
+const trf=document.createElement('tr');
+trf.innerHTML=`
+ <td class="l">Totale — 35 collaboratori</td>
+ <td></td><td></td>
+ <td class="big" style="color:#888">${fn(totImp)}</td>
+ <td></td><td></td>
+ <td class="big" style="color:#185FA5">${fn(totCA)}</td>
+ <td></td>
+ <td class="big" style="color:var(--orange)">${fn(totC28)}</td>
+ <td></td>
+ <td class="big" style="color:#c0392b">+€${Math.round(totD).toLocaleString('it-IT')}</td>
+ <td class="big" style="color:#c0392b">+13,1%</td>`;
+tf.appendChild(trf);
+})();
+</script>
+</body>
+</html>
