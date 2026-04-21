@@ -129,7 +129,7 @@ footer{background:var(--black);padding:36px 32px;}
 
   <div class="highlight-box">
     <div class="hb-label">Nota sulle colonne</div>
-    <p><strong>€/H att</strong> e <strong>€/L att</strong> = tariffa attuale per ora e per lezione. <strong>€/H new</strong> e <strong>€/L new</strong> = tariffa 2028 garantita al collaboratore (netto percepito). <strong>Caz/unit 2028</strong> = costo totale azienda per unità (ora o lezione), inclusi contributi — mostrato solo per chi ha un unico tipo di prestazione.</p>
+    <p><strong>Tariffa attuale</strong> = netto percepito per ora/lezione oggi. <strong>Tariffa 2028 netta</strong> = netto garantito per ora/lezione nello scenario misto. <strong>Lordo contratto 2028</strong> = importo da inserire nel contratto (per P.IVA = fattura; per Cococo = lordo prima delle trattenute del lavoratore). <strong>Costo az./unit</strong> = costo totale Point 2000 per unità, incluso INPS aziendale — mostrato solo per chi ha un unico tipo di prestazione.</p>
   </div>
 
   <div class="legend">
@@ -148,11 +148,14 @@ footer{background:var(--black);padding:36px 32px;}
         <th rowspan="2">Lez. L</th>
         <th rowspan="2">Comp. annuo</th>
         <th class="grp" colspan="2">Tariffa attuale</th>
-        <th class="grp" colspan="2">Tariffa 2028 (netto)</th>
-        <th rowspan="2">Caz/unit 2028</th>
+        <th class="grp" colspan="2">Tariffa 2028 netta</th>
+        <th class="grp" colspan="2">Lordo contratto 2028</th>
+        <th rowspan="2">Costo az./unit 2028</th>
       </tr>
       <tr>
         <th style="border-left:1px solid rgba(255,255,255,.12)">€/H</th>
+        <th>€/L</th>
+        <th>€/H</th>
         <th>€/L</th>
         <th>€/H</th>
         <th>€/L</th>
@@ -220,25 +223,25 @@ const pill=(l,bg,c)=>'<span class="pill" style="background:'+bg+';color:'+c+';">
 
 // ── SRL ──
 const SRL=[
- {n:"Palermo Valerio",     tc:"piva",  oH:287.0, lL:651.0, imp:14699.5, tipo:"misto", th_a:7.39, tl_a:19.32, th_n:8.13, tl_n:21.25, caz_n:null},
- {n:"Pagliaccia Giulia",   tc:"piva",  oH:0,     lL:620.0, imp:11834,   tipo:"L",    th_a:null, tl_a:19.09, th_n:null, tl_n:21.00, caz_n:23.48},
- {n:"Fiorita Filippo",     tc:"piva",  oH:840.0, lL:352.0, imp:11532,   tipo:"misto",th_a:7.00, tl_a:16.06, th_n:7.70, tl_n:17.67, caz_n:null},
- {n:"Di Censi Manuel",     tc:"piva",  oH:5.0,   lL:601.0, imp:10871,   tipo:"misto",th_a:7.00, tl_a:18.03, th_n:7.70, tl_n:19.83, caz_n:null},
- {n:"Battilana Barbara",   tc:"piva",  oH:0,     lL:653.0, imp:10616,   tipo:"L",    th_a:null, tl_a:16.26, th_n:null, tl_n:17.89, caz_n:19.65},
- {n:"Mariottini Miriana",  tc:"piva",  oH:0,     lL:494.0, imp:8296,    tipo:"L",    th_a:null, tl_a:16.79, th_n:null, tl_n:18.47, caz_n:21.17},
- {n:"Bonfante Vincenza",   tc:"piva",  oH:400.42,lL:277.0, imp:8093.36, tipo:"misto",th_a:9.14, tl_a:16.00, th_n:10.05,tl_n:17.60, caz_n:null},
- {n:"Bertani Federica",    tc:"piva",  oH:0,     lL:459.0, imp:7344,    tipo:"L",    th_a:null, tl_a:16.00, th_n:null, tl_n:17.60, caz_n:19.27},
- {n:"Tufano Annabella",    tc:"piva",  oH:0,     lL:395.0, imp:6320,    tipo:"L",    th_a:null, tl_a:16.00, th_n:null, tl_n:17.60, caz_n:19.85},
- {n:"La Banca Alessia",    tc:"cococo",oH:143.17,lL:277.0, imp:5157.17, tipo:"misto",th_a:7.00, tl_a:15.00, th_n:7.00, tl_n:15.00, caz_n:null},
- {n:"Pascolat Paola",      tc:"cococo",oH:0,     lL:231.0, imp:3782,    tipo:"L",    th_a:null, tl_a:16.37, th_n:null, tl_n:16.37, caz_n:22.80},
- {n:"Re Alessandra",       tc:"cococo",oH:43.0,  lL:178.0, imp:3773,    tipo:"misto",th_a:7.00, tl_a:19.51, th_n:7.00, tl_n:19.51, caz_n:null},
- {n:"Capparelli Eleonora", tc:"cococo",oH:0,     lL:182.0, imp:3402,    tipo:"L",    th_a:null, tl_a:18.69, th_n:null, tl_n:18.69, caz_n:29.12},
- {n:"Ferrari Isabella",    tc:"cococo",oH:0,     lL:77.0,  imp:1540,    tipo:"L",    th_a:null, tl_a:20.00, th_n:null, tl_n:20.00, caz_n:27.94},
- {n:"Zagaria Beatrice",    tc:"cococo",oH:231.75,lL:0,     imp:1622.25, tipo:"H",    th_a:7.00, tl_a:null,  th_n:7.00, tl_n:null,  caz_n:8.77},
- {n:"Pensini Arianna",     tc:"cococo",oH:0,     lL:68.0,  imp:1224,    tipo:"L",    th_a:null, tl_a:18.00, th_n:null, tl_n:18.00, caz_n:22.28},
- {n:"Blasi Alessandro",    tc:"cococo",oH:156.0, lL:1.0,   imp:1112,    tipo:"misto",th_a:7.00, tl_a:20.00, th_n:7.00, tl_n:20.00, caz_n:null},
- {n:"Portale Alice",       tc:"cococo",oH:0,     lL:68.0,  imp:1020,    tipo:"L",    th_a:null, tl_a:15.00, th_n:null, tl_n:15.00, caz_n:15.40},
- {n:"Pino Micol",          tc:"cococo",oH:0,     lL:35.0,  imp:700,     tipo:"L",    th_a:null, tl_a:20.00, th_n:null, tl_n:20.00, caz_n:25.54},
+ {n:"Palermo Valerio",     tc:"piva",  oH:287.0, lL:651.0, imp:14699.5, tipo:"misto", th_a:7.39, tl_a:19.32, th_n:8.13, tl_n:21.25, caz_n:null, lc:18236, lh_n:8.13, ll_n:21.25},
+ {n:"Pagliaccia Giulia",   tc:"piva",  oH:0,     lL:620.0, imp:11834,   tipo:"L",    th_a:null, tl_a:19.09, th_n:null, tl_n:21.00, caz_n:23.48, lc:14556, lh_n:null, ll_n:23.48},
+ {n:"Fiorita Filippo",     tc:"piva",  oH:840.0, lL:352.0, imp:11532,   tipo:"misto",th_a:7.00, tl_a:16.06, th_n:7.70, tl_n:17.67, caz_n:null, lc:14349, lh_n:7.7, ll_n:17.67},
+ {n:"Di Censi Manuel",     tc:"piva",  oH:5.0,   lL:601.0, imp:10871,   tipo:"misto",th_a:7.00, tl_a:18.03, th_n:7.70, tl_n:19.83, caz_n:null, lc:13461, lh_n:7.7, ll_n:19.83},
+ {n:"Battilana Barbara",   tc:"piva",  oH:0,     lL:653.0, imp:10616,   tipo:"L",    th_a:null, tl_a:16.26, th_n:null, tl_n:17.89, caz_n:19.65, lc:12831, lh_n:null, ll_n:19.65},
+ {n:"Mariottini Miriana",  tc:"piva",  oH:0,     lL:494.0, imp:8296,    tipo:"L",    th_a:null, tl_a:16.79, th_n:null, tl_n:18.47, caz_n:21.17, lc:10457, lh_n:null, ll_n:21.17},
+ {n:"Bonfante Vincenza",   tc:"piva",  oH:400.42,lL:277.0, imp:8093.36, tipo:"misto",th_a:9.14, tl_a:16.00, th_n:10.05,tl_n:17.60, caz_n:null, lc:8683, lh_n:10.05, ll_n:17.6},
+ {n:"Bertani Federica",    tc:"piva",  oH:0,     lL:459.0, imp:7344,    tipo:"L",    th_a:null, tl_a:16.00, th_n:null, tl_n:17.60, caz_n:19.27, lc:8847, lh_n:null, ll_n:19.27},
+ {n:"Tufano Annabella",    tc:"piva",  oH:0,     lL:395.0, imp:6320,    tipo:"L",    th_a:null, tl_a:16.00, th_n:null, tl_n:17.60, caz_n:19.85, lc:7840, lh_n:null, ll_n:19.85},
+ {n:"La Banca Alessia",    tc:"cococo",oH:143.17,lL:277.0, imp:5157.17, tipo:"misto",th_a:7.00, tl_a:15.00, th_n:7.00, tl_n:15.00, caz_n:null, lc:6119, lh_n:7.0, ll_n:15.0},
+ {n:"Pascolat Paola",      tc:"cococo",oH:0,     lL:231.0, imp:3782,    tipo:"L",    th_a:null, tl_a:16.37, th_n:null, tl_n:16.37, caz_n:null, lc:4269, lh_n:null, ll_n:18.48},
+ {n:"Re Alessandra",       tc:"cococo",oH:43.0,  lL:178.0, imp:3773,    tipo:"misto",th_a:7.00, tl_a:19.51, th_n:7.00, tl_n:19.51, caz_n:null, lc:4368, lh_n:7.0, ll_n:19.51},
+ {n:"Capparelli Eleonora", tc:"cococo",oH:0,     lL:182.0, imp:3402,    tipo:"L",    th_a:null, tl_a:18.69, th_n:null, tl_n:18.69, caz_n:29.12, lc:4297, lh_n:null, ll_n:23.61},
+ {n:"Ferrari Isabella",    tc:"cococo",oH:0,     lL:77.0,  imp:1540,    tipo:"L",    th_a:null, tl_a:20.00, th_n:null, tl_n:20.00, caz_n:27.94, lc:1744, lh_n:null, ll_n:22.64},
+ {n:"Zagaria Beatrice",    tc:"cococo",oH:231.75,lL:0,     imp:1622.25, tipo:"H",    th_a:7.00, tl_a:null,  th_n:7.00, tl_n:null,  caz_n:8.77, lc:1648, lh_n:7.11, ll_n:null},
+ {n:"Pensini Arianna",     tc:"cococo",oH:0,     lL:68.0,  imp:1224,    tipo:"L",    th_a:null, tl_a:18.00, th_n:null, tl_n:18.00, caz_n:22.28, lc:1228, lh_n:null, ll_n:18.07},
+ {n:"Blasi Alessandro",    tc:"cococo",oH:156.0, lL:1.0,   imp:1112,    tipo:"misto",th_a:7.00, tl_a:20.00, th_n:7.00, tl_n:20.00, caz_n:null, lc:1125, lh_n:7.0, ll_n:20.0},
+ {n:"Portale Alice",       tc:"cococo",oH:0,     lL:68.0,  imp:1020,    tipo:"L",    th_a:null, tl_a:15.00, th_n:null, tl_n:15.00, caz_n:null, lc:849, lh_n:null, ll_n:12.49},
+ {n:"Pino Micol",          tc:"cococo",oH:0,     lL:35.0,  imp:700,     tipo:"L",    th_a:null, tl_a:20.00, th_n:null, tl_n:20.00, caz_n:25.54, lc:725, lh_n:null, ll_n:20.7},
 ];
 
 const bSRL=document.getElementById('tSRL');
@@ -251,6 +254,8 @@ SRL.forEach(r=>{
  const tr=document.createElement('tr');
  tr.setAttribute('style',rowBg);
  const cazUnit=r.caz_n!=null?('<span style="color:'+col+';font-weight:700">€'+r.caz_n.toFixed(2)+'</span>'):'<span style="color:#bbb;font-size:10px;">—</span>';
+ const lhN=r.lh_n!=null?('<strong style="color:'+col+'">€'+parseFloat(r.lh_n).toFixed(2)+'</strong>'):'—';
+ const llN=r.ll_n!=null?('<strong style="color:'+col+'">€'+parseFloat(r.ll_n).toFixed(2)+'</strong>'):'—';
  tr.innerHTML=`
   <td class="l">${r.n}</td>
   <td class="c">${tp}</td>
@@ -259,8 +264,10 @@ SRL.forEach(r=>{
   <td class="mono" style="color:#888">${fn(r.imp)}</td>
   <td class="mono" style="color:#888;border-left:1px solid var(--border)">${fh(r.th_a)}</td>
   <td class="mono" style="color:#888">${fh(r.tl_a)}</td>
-  <td class="mono" style="color:${col}">${fh(r.th_n)}</td>
-  <td class="mono" style="color:${col}">${fh(r.tl_n)}</td>
+  <td class="mono" style="color:${col};font-weight:700"><strong>${fh(r.th_n)}</strong></td>
+  <td class="mono" style="color:${col};font-weight:700"><strong>${fh(r.tl_n)}</strong></td>
+  <td class="mono" style="border-left:1px solid var(--border)">${lhN}</td>
+  <td class="mono">${llN}</td>
   <td class="mono">${cazUnit}</td>`;
  bSRL.appendChild(tr);
 });
