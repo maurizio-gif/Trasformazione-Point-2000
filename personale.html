@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point 2000 — Analisi Costo Personale 2028</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#e85d1a;--orange-dark:#c44d10;--black:#111111;--white:#ffffff;--off-white:#f5f4f2;--light-grey:#e8e8e8;--mid-grey:#888888;--dark-grey:#444444;--border:#e0e0e0;--card-bg:#f9f8f6;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{overflow-x:hidden;max-width:100vw;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;}
+
+/* ── HEADER ── */
+header{background:var(--white);border-bottom:3px solid var(--orange);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:38px;height:38px;background:var(--orange);clip-path:polygon(20% 0%,80% 0%,100% 50%,80% 100%,20% 100%,0% 50%);flex-shrink:0;}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:1px;text-transform:uppercase;color:var(--black);line-height:1;}
+.logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+.header-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid-grey);border:1.5px solid var(--border);padding:5px 14px;border-radius:2px;}
+.back-btn{display:inline-flex;align-items:center;gap:7px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid-grey);text-decoration:none;border:1.5px solid var(--border);padding:6px 14px;border-radius:2px;transition:color .2s,border-color .2s;}
+.back-btn:hover{color:var(--orange);border-color:var(--orange);}
+
+/* ── HERO ── */
+.hero{background:var(--white);padding:50px 32px 40px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero::after{content:'2028';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:180px;color:rgba(0,0,0,0.03);line-height:1;pointer-events:none;user-select:none;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--orange);}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(42px,7vw,80px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;color:var(--black);margin-bottom:6px;}
+.hero h1 .orange{color:var(--orange);}
+.hero-subtitle{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(16px,2.5vw,22px);text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:16px;}
+.hero-desc{font-size:14px;color:var(--dark-grey);max-width:560px;line-height:1.7;}
+
+/* ── KPI STRIP ── */
+.kpi-strip{background:var(--black);padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.kpi-item{padding:20px 18px;border-right:1px solid rgba(255,255,255,0.08);position:relative;}
+.kpi-item:last-child{border-right:none;}
+.kpi-item::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:var(--orange);transition:width .4s;}
+.kpi-item:hover::before{width:100%;}
+.kpi-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px;}
+.kpi-value{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;line-height:1;color:var(--orange);}
+.kpi-note{font-size:10px;color:rgba(255,255,255,0.3);margin-top:3px;}
+
+/* ── NAV ── */
+.section-nav{background:var(--off-white);border-bottom:1px solid var(--border);padding:0 32px;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.nav-pill{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid-grey);padding:14px 16px;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;}
+.nav-pill:hover{color:var(--orange);border-color:var(--orange);}
+
+/* ── SECTIONS ── */
+.section{padding:52px 32px;border-bottom:1px solid var(--border);max-width:960px;margin:0 auto;}
+.section-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:28px;}
+.section-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;line-height:0.85;color:rgba(0,0,0,0.05);flex-shrink:0;user-select:none;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(24px,4vw,38px);text-transform:uppercase;line-height:0.95;letter-spacing:-.5px;color:var(--black);}
+.sh3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:.5px;margin:28px 0 14px;color:var(--black);}
+.prose{font-size:14px;color:var(--dark-grey);line-height:1.75;}
+.prose p{margin-bottom:14px;}
+.prose p:last-child{margin-bottom:0;}
+.prose strong{color:var(--black);font-weight:600;}
+
+/* ── BOXES ── */
+.highlight-box{background:var(--card-bg);border-left:4px solid var(--orange);padding:16px 20px;margin:20px 0;border-radius:0 4px 4px 0;}
+.highlight-box .hb-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+.highlight-box p{font-size:13px;color:var(--dark-grey);line-height:1.7;margin:0;}
+.highlight-box strong{color:var(--black);}
+.warning-box{background:#fff8f4;border-left:4px solid var(--orange);border-top:1px solid rgba(232,93,26,.15);border-right:1px solid rgba(232,93,26,.15);border-bottom:1px solid rgba(232,93,26,.15);padding:14px 18px;margin:20px 0;border-radius:0 4px 4px 0;display:flex;gap:12px;}
+.warning-box .icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.warning-box p{font-size:13px;color:#7a3000;line-height:1.65;margin:0;}
+.warning-box strong{color:#5a2200;}
+
+/* ── TABLE SHARED STYLES ── */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 36px;}
+.ptbl{width:100%;border-collapse:collapse;font-size:12px;min-width:580px;}
+.ptbl thead tr{background:var(--black);}
+.ptbl thead th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);padding:10px 12px;text-align:right;white-space:nowrap;}
+.ptbl thead th.l{text-align:left;min-width:200px;}
+.grp-row td{background:var(--card-bg);border-top:1.5px solid var(--border);padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--black);}
+.sub-row td{border-bottom:0.5px solid var(--border);}
+.sub-row td.label{padding:4px 12px 4px 20px;text-align:left;font-size:11px;color:var(--dark-grey);}
+.sub-row td.val{padding:4px 12px;text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:13px;}
+.ptbl tfoot tr{background:var(--off-white);border-top:2px solid var(--black);}
+.ptbl tfoot td{padding:10px 12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:var(--black);text-transform:uppercase;letter-spacing:.5px;text-align:right;}
+.ptbl tfoot td.l{text-align:left;font-size:12px;}
+.ptbl tfoot td.big{font-size:16px;}
+.pill{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:1px 7px;border-radius:2px;margin-right:4px;}
+
+/* ── LEGEND ── */
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 20px;font-size:12px;}
+.legend-item{display:flex;align-items:center;gap:6px;}
+.leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{background:var(--black);padding:36px 32px;}
+.footer-inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;}
+.footer-note{font-size:12px;color:rgba(255,255,255,.25);line-height:1.7;max-width:420px;}
+.footer-note strong{color:rgba(255,255,255,.4);}
+
+@media(max-width:640px){
+  header{padding:0 16px;}
+  .hero{padding:36px 16px 32px;}
+  .hero::after{display:none;}
+  .kpi-strip{grid-template-columns:repeat(2,1fr);padding:0 16px;}
+  .section-nav{padding:0 16px;}
+  .section{padding:36px 16px;}
+  footer{padding:24px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div>
+      <div class="logo-text">Point 2000</div>
+      <div class="logo-sub">Analisi Costo Personale</div>
+    </div>
+  </div>
+  <a href="index.html" class="back-btn">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Torna al Report
+  </a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Sezione Operativa</div>
+  <h1>COSTO<br><span class="orange">PERSONALE</span></h1>
+  <div class="hero-subtitle">Simulazione contrattuale 2028 — 19 Collaboratori Sportivi</div>
+  <p class="hero-desc">Analisi del ricollocamento contrattuale dei collaboratori sportivi attualmente in regime SSD, con proiezione dei costi a regime post-trasformazione in SRL commerciale. Tutti gli scenari garantiscono lo stesso netto percepito nel 2025.</p>
+</div>
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-item"><div class="kpi-label">Collaboratori analizzati</div><div class="kpi-value">19</div><div class="kpi-note">tutti in regime sportivo SSD</div></div>
+  <div class="kpi-item"><div class="kpi-label">Netto totale 2025</div><div class="kpi-value">€99.764</div><div class="kpi-note">somma netti effettivi</div></div>
+  <div class="kpi-item"><div class="kpi-label">Costo azienda 2025</div><div class="kpi-value">€109.235</div><div class="kpi-note">lordo + INPS societario</div></div>
+  <div class="kpi-item"><div class="kpi-label">Scenario misto 2028</div><div class="kpi-value">€141.791</div><div class="kpi-note">+€32.557 vs oggi</div></div>
+  <div class="kpi-item"><div class="kpi-label">Netto aggiuntivo erogato</div><div class="kpi-value">€7.854</div><div class="kpi-note">+10% ai 9 P.IVA</div></div>
+</div>
+
+<!-- NAV -->
+<nav class="section-nav">
+  <a href="#scenari" class="nav-pill">01 — Tre Scenari</a>
+  <a href="#misto" class="nav-pill">02 — Scenario Misto</a>
+</nav>
+
+<!-- ══ SEZIONE 01 — TRE SCENARI ════════════════════════════════════ -->
+<section class="section" id="scenari">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <div class="section-title-block">
+      <div class="section-label">Comparazione Completa</div>
+      <h2 class="section-title">I Tre<br>Scenari</h2>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>Per ciascun collaboratore vengono simulati tre inquadramenti contrattuali a parità di netto percepito nel 2025. Gli importi 2028 riflettono le aliquote contributive a regime, senza agevolazioni transitorie.</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Applicabilità degli scenari</div>
+    <p><strong>Scenario A</strong> (cococo sportivo) è utilizzabile solo dalla <strong>Newco SSD</strong> iscritta al RAS. <strong>Point 2000 SRL commerciale</strong> può usare esclusivamente lo scenario B (cococo ordinario) o C (P.IVA). Per la P.IVA non esiste INPS a carico azienda — il collaboratore gestisce autonomamente i propri contributi sulla fattura emessa.</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="leg-dot" style="background:#888;"></div> Situazione 2025 (SSD)</div>
+    <div class="legend-item"><div class="leg-dot" style="background:#185FA5;"></div> A — Cococo sportivo 2028 (solo Newco SSD)</div>
+    <div class="legend-item"><div class="leg-dot" style="background:#A32D2D;"></div> B — Cococo ordinario 2028 (SRL)</div>
+    <div class="legend-item"><div class="leg-dot" style="background:#3B6D11;"></div> C — P.IVA forfettaria 2028 (SRL)</div>
+  </div>
+
+  <div class="tbl-wrap">
+  <table class="ptbl">
+    <thead>
+      <tr>
+        <th class="l">Collaboratore / Scenario</th>
+        <th>Netto</th>
+        <th>Lordo / Fattura</th>
+        <th>INPS azienda</th>
+        <th>Costo az. totale</th>
+      </tr>
+    </thead>
+    <tbody id="t1body"></tbody>
+    <tfoot id="t1foot"></tfoot>
+  </table>
+  </div>
+</section>
+
+<!-- ══ SEZIONE 02 — SCENARIO MISTO ════════════════════════════════ -->
+<section class="section" id="misto">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <div class="section-title-block">
+      <div class="section-label">Raccomandazione Operativa</div>
+      <h2 class="section-title">Scenario<br>Misto</h2>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>Lo scenario misto combina P.IVA forfettaria per i collaboratori con volumi significativi e cococo ordinario per quelli con importi minori, dove aprire una partita IVA sarebbe sproporzionato. Il cococo sportivo 2028 è riportato come riferimento comparativo per ogni collaboratore.</p>
+  </div>
+
+  <div class="highlight-box">
+    <div class="hb-label">Logica della segmentazione</div>
+    <p><strong>9 collaboratori</strong> con netto annuo ≥ €5.000 → <strong>P.IVA forfettaria con netto aumentato del +10%</strong> come incentivo per l'apertura. <strong>10 collaboratori</strong> con netto &lt; €5.000 → <strong>Cococo ordinario SRL</strong>, stesso netto invariato. In colonna aggiuntiva il cococo sportivo 2028 (aliquota 26% piena, senza agevolazione 50%) per confronto diretto.</p>
+  </div>
+
+  <div class="kpi-strip" style="border-radius:4px;overflow:hidden;margin-bottom:24px;">
+    <div class="kpi-item"><div class="kpi-label">Costo az. 2025</div><div class="kpi-value">€109.235</div><div class="kpi-note">baseline attuale</div></div>
+    <div class="kpi-item"><div class="kpi-label">Scenario misto</div><div class="kpi-value">€141.791</div><div class="kpi-note">+€32.557 (+29,8%)</div></div>
+    <div class="kpi-item"><div class="kpi-label">Cococo sportivo 2028</div><div class="kpi-value">€128.167</div><div class="kpi-note">+€18.932 (solo SSD)</div></div>
+    <div class="kpi-item"><div class="kpi-label">Netto aggiuntivo erogato</div><div class="kpi-value">€7.854</div><div class="kpi-note">+10% ai 9 P.IVA</div></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="leg-dot" style="background:#888;"></div> Situazione 2025</div>
+    <div class="legend-item"><div class="leg-dot" style="background:#3B6D11;"></div> Scenario misto (P.IVA +10% o Cococo stesso netto)</div>
+    <div class="legend-item"><div class="leg-dot" style="background:#185FA5;"></div> Cococo sportivo 2028 — riferimento (solo SSD)</div>
+  </div>
+
+  <div class="tbl-wrap">
+  <table class="ptbl">
+    <thead>
+      <tr>
+        <th class="l">Collaboratore / Scenario</th>
+        <th>Netto</th>
+        <th>Lordo / Fattura</th>
+        <th>INPS azienda</th>
+        <th>Costo az. totale</th>
+        <th>Δ vs 2025</th>
+      </tr>
+    </thead>
+    <tbody id="t2body"></tbody>
+    <tfoot id="t2foot"></tfoot>
+  </table>
+  </div>
+
+  <div class="warning-box">
+    <div class="icon">⚠</div>
+    <p>I collaboratori con importi annui sotto €2.000 (Ferrari, Zagaria, Pensini, Blasi, Portale, Pino) potrebbero essere gestiti con <strong>lavoro occasionale</strong> (LibroPaga, limite €5.000/anno per committente) eliminando l'onere INPS aziendale del cococo. Da valutare caso per caso con il consulente del lavoro.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo">
+        <div class="logo-icon"></div>
+        <div>
+          <div class="logo-text" style="color:white;">Point 2000</div>
+          <div class="logo-sub" style="opacity:.5;">Via Ugo Ojetti 134 — 00137 Roma</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-note">
+      <strong>Documento confidenziale — Aprile 2026.</strong> I calcoli sono basati sulle aliquote INPS a regime post-luglio 2027 (26% cococo sportivo, 35,03% cococo ordinario) e sul regime forfettario 5% con coefficiente 67%. Le simulazioni non sostituiscono la consulenza di un consulente del lavoro.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+const f = v => '€'+Math.round(v).toLocaleString('it-IT');
+const dv = (v,b) => {
+  const x=Math.round(v-b), s=x>=0?'+':'';
+  const col=x>0?'#c0392b':x<0?'#2e7d4f':'#888';
+  return '<span style="color:'+col+'">'+s+Math.abs(x).toLocaleString('it-IT')+'</span>';
+};
+const pill=(l,bg,c)=>'<span class="pill" style="background:'+bg+';color:'+c+';">'+l+'</span>';
+
+const D=[
+  {n:"Palermo Valerio",     net:13109,lor:13500,ins:781,  caz:14280, aL:14353,aI:2488,aC:16841, bL:18614,bI:4347,bC:22961, cF:16578,cC:16578, tipo:"piva", nn:14420,ln:18236,in2:0,   cn:18236, saL:14353,saI:2488,saC:16841},
+  {n:"Pagliaccia Giulia",   net:10464,lor:10796,ins:664,  caz:11460, aL:11457,aI:1986,aC:13443, bL:14725,bI:3439,bC:18164, cF:13233,cC:13233, tipo:"piva", nn:11510,ln:14556,in2:0,   cn:14556, saL:11457,saI:1986,saC:13443},
+  {n:"Fiorita Filippo",     net:10315,lor:10666,ins:702,  caz:11367, aL:11293,aI:1958,aC:13251, bL:14505,bI:3387,bC:17893, cF:13044,cC:13044, tipo:"piva", nn:11347,ln:14349,in2:0,   cn:14349, saL:11294,saI:1958,saC:13251},
+  {n:"Di Censi Manuel",     net:9677, lor:9912, ins:469,  caz:10381, aL:10596,aI:1837,aC:12432, bL:13569,bI:3169,bC:16737, cF:12238,cC:12238, tipo:"piva", nn:10645,ln:13461,in2:0,   cn:13461, saL:10595,saI:1837,saC:12432},
+  {n:"Battilana Barbara",   net:9224, lor:9473, ins:498,  caz:9971,  aL:10099,aI:1751,aC:11850, bL:12902,bI:3013,bC:15915, cF:11665,cC:11665, tipo:"piva", nn:10146,ln:12831,in2:0,   cn:12831, saL:10099,saI:1751,saC:11850},
+  {n:"Mariottini Miriana",  net:7517, lor:7787, ins:542,  caz:8329,  aL:8230, aI:1426,aC:9656,  bL:10391,bI:2427,bC:12818, cF:9505, cC:9505,  tipo:"piva", nn:8269, ln:10457,in2:0,   cn:10457, saL:8230,saI:1427,saC:9657},
+  {n:"Bonfante Vincenza",   net:6242, lor:7556, ins:641,  caz:8197,  aL:6834, aI:1185,aC:8019,  bL:8517, bI:1989,bC:10506, cF:7893, cC:7893,  tipo:"piva", nn:6866, ln:8683, in2:0,   cn:8683,  saL:6834,saI:1185,saC:8019},
+  {n:"Bertani Federica",    net:6360, lor:6816, ins:527,  caz:7343,  aL:6963, aI:1207,aC:8170,  bL:8690, bI:2029,bC:10719, cF:8042, cC:8042,  tipo:"piva", nn:6996, ln:8847, in2:0,   cn:8847,  saL:6964,saI:1207,saC:8171},
+  {n:"Tufano Annabella",    net:5636, lor:5792, ins:313,  caz:6105,  aL:6170, aI:1070,aC:7240,  bL:7625, bI:1781,bC:9406,  cF:7127, cC:7127,  tipo:"piva", nn:6200, ln:7840, in2:0,   cn:7840,  saL:6171,saI:1070,saC:7240},
+  {n:"La Banca Alessia",    net:4611, lor:4611, ins:0,    caz:4611,  aL:5049, aI:875, aC:5924,  bL:6119, bI:1429,bC:7548,  cF:5831, cC:5831,  tipo:"cococo",nn:4611,ln:6119, in2:1429,cn:7548, saL:5049,saI:875,saC:5924},
+  {n:"Pascolat Paola",      net:3353, lor:3441, ins:175,  caz:3616,  aL:3672, aI:636, aC:4308,  bL:4270, bI:997, bC:5267,  cF:4241, cC:4241,  tipo:"cococo",nn:3353,ln:4269, in2:997, cn:5266, saL:3671,saI:636,saC:4308},
+  {n:"Re Alessandra",       net:3420, lor:3420, ins:0,    caz:3420,  aL:3745, aI:649, aC:4394,  bL:4368, bI:1020,bC:5388,  cF:4325, cC:4325,  tipo:"cococo",nn:3420,ln:4368, in2:1020,cn:5388, saL:3745,saI:649,saC:4394},
+  {n:"Capparelli Eleonora", net:3372, lor:3412, ins:81,   caz:3493,  aL:3692, aI:640, aC:4332,  bL:4297, bI:1003,bC:5300,  cF:4264, cC:4264,  tipo:"cococo",nn:3372,ln:4297, in2:1003,cn:5300, saL:3692,saI:640,saC:4332},
+  {n:"Ferrari Isabella",    net:1540, lor:1540, ins:0,    caz:1540,  aL:1686, aI:292, aC:1978,  bL:1744, bI:407, bC:2151,  cF:1947, cC:1947,  tipo:"cococo",nn:1540,ln:1744, in2:407, cn:2151, saL:1686,saI:292,saC:1978},
+  {n:"Zagaria Beatrice",    net:1456, lor:1456, ins:0,    caz:1456,  aL:1594, aI:276, aC:1870,  bL:1648, bI:385, bC:2033,  cF:1841, cC:1841,  tipo:"cococo",nn:1456,ln:1648, in2:385, cn:2033, saL:1594,saI:276,saC:1870},
+  {n:"Pensini Arianna",     net:1085, lor:1116, ins:63,   caz:1179,  aL:1188, aI:206, aC:1393,  bL:1228, bI:287, bC:1515,  cF:1372, cC:1372,  tipo:"cococo",nn:1085,ln:1228, in2:287, cn:1515, saL:1188,saI:206,saC:1394},
+  {n:"Blasi Alessandro",    net:994,  lor:1028, ins:68,   caz:1096,  aL:1088, aI:189, aC:1277,  bL:1126, bI:263, bC:1388,  cF:1257, cC:1257,  tipo:"cococo",nn:994, ln:1125, in2:263, cn:1388, saL:1088,saI:189,saC:1277},
+  {n:"Portale Alice",       net:750,  lor:750,  ins:0,    caz:750,   aL:821,  aI:142, aC:964,   bL:849,  bI:198, bC:1047,  cF:948,  cC:948,   tipo:"cococo",nn:750, ln:849,  in2:198, cn:1047, saL:821,saI:142,saC:964},
+  {n:"Pino Micol",          net:640,  lor:640,  ins:0,    caz:640,   aL:701,  aI:121, aC:822,   bL:725,  bI:169, bC:894,   cF:809,  cC:809,   tipo:"cococo",nn:640, ln:725,  in2:169, cn:894,  saL:701,saI:121,saC:822},
+];
+
+const T=D.reduce((a,r)=>{['net','lor','ins','caz','aL','aI','aC','bL','bI','bC','cF','cC','nn','ln','in2','cn','saL','saI','saC'].forEach(k=>a[k]=(a[k]||0)+r[k]);return a;},{});
+
+const mkGrp=(name,badge)=>{
+  const tr=document.createElement('tr');
+  tr.className='grp-row';
+  const td=document.createElement('td');
+  td.setAttribute('colspan','10');
+  td.innerHTML=name+' '+badge;
+  tr.appendChild(td);
+  return tr;
+};
+const mkRow=(cells,style)=>{
+  const tr=document.createElement('tr');
+  tr.className='sub-row';
+  if(style)tr.setAttribute('style',style);
+  cells.forEach(([val,cls,bold,right])=>{
+    const td=document.createElement('td');
+    td.className=right?'val':'label';
+    if(bold)td.style.fontWeight='700';
+    if(cls)td.style.color=cls;
+    td.innerHTML=val;
+    tr.appendChild(td);
+  });
+  return tr;
+};
+
+// ── TABLE 1 ──
+const b1=document.getElementById('t1body'), f1=document.getElementById('t1foot');
+D.forEach(r=>{
+  b1.appendChild(mkGrp(r.n,''));
+  b1.appendChild(mkRow([[pill('2025','#e8e8e8','#555')+' Attuale SSD','',false,false],[f(r.net),'#888',false,true],[f(r.lor),'#888',false,true],[f(r.ins),'#888',false,true],[f(r.caz),'#888',true,true]]));
+  b1.appendChild(mkRow([[pill('A','rgba(24,95,165,.15)','#0C447C')+' Cococo sportivo 2028 (SSD)','',false,false],[f(r.net),'#185FA5',false,true],[f(r.aL),'#185FA5',false,true],[f(r.aI),'#185FA5',false,true],[f(r.aC),'#185FA5',true,true]]));
+  b1.appendChild(mkRow([[pill('B','rgba(162,45,45,.12)','#791F1F')+' Cococo ordinario 2028 (SRL)','',false,false],[f(r.net),'#A32D2D',false,true],[f(r.bL),'#A32D2D',false,true],[f(r.bI),'#A32D2D',false,true],[f(r.bC),'#A32D2D',true,true]]));
+  b1.appendChild(mkRow([[pill('C','rgba(59,109,17,.12)','#27500A')+' P.IVA forfettaria 2028 (SRL)','',false,false],[f(r.net),'#3B6D11',false,true],[f(r.cF),'#3B6D11',false,true],['—','#888',false,true],[f(r.cC),'#3B6D11',true,true]]));
+});
+const addF1=(lbl,net,lor,ins,caz,col)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="l">${lbl}</td><td class="big" style="color:${col}">${f(net)}</td><td style="color:${col}">${f(lor)}</td><td style="color:${col}">${f(ins)}</td><td class="big" style="color:${col}">${f(caz)}</td>`;
+  f1.appendChild(tr);
+};
+addF1('Totale 2025 — SSD',T.net,T.lor,T.ins,T.caz,'#444');
+addF1('Totale A — Cococo sportivo 2028',T.net,T.aL,T.aI,T.aC,'#185FA5');
+addF1('Totale B — Cococo ordinario 2028',T.net,T.bL,T.bI,T.bC,'#A32D2D');
+addF1('Totale C — P.IVA forfettaria 2028',T.net,T.cF,0,T.cC,'#3B6D11');
+
+// ── TABLE 2 ──
+const b2=document.getElementById('t2body'), f2=document.getElementById('t2foot');
+D.forEach(r=>{
+  const ip=r.tipo==='piva';
+  const mCol=ip?'#3B6D11':'#A32D2D';
+  const mBadge=ip?pill('P.IVA +10%','rgba(59,109,17,.12)','#27500A'):pill('Cococo ord.','rgba(162,45,45,.12)','#791F1F');
+  b2.appendChild(mkGrp(r.n, ip?'<span style="font-size:11px;color:#3B6D11;font-family:Barlow Condensed,sans-serif;font-weight:700;letter-spacing:.5px;text-transform:uppercase;">↑ P.IVA</span>':'<span style="font-size:11px;color:#A32D2D;font-family:Barlow Condensed,sans-serif;font-weight:700;letter-spacing:.5px;text-transform:uppercase;">Cococo</span>'));
+  // 2025
+  b2.appendChild(mkRow([[pill('2025','#e8e8e8','#555')+' Attuale SSD','',false,false],[f(r.net),'#888',false,true],[f(r.lor),'#888',false,true],[f(r.ins),'#888',false,true],[f(r.caz),'#888',true,true],['','',false,true]]));
+  // Misto
+  const netLbl=ip?f(r.nn)+' <span style="font-size:9px;color:#3B6D11">(+10%)</span>':f(r.nn);
+  const tr2=document.createElement('tr'); tr2.className='sub-row';
+  tr2.innerHTML=`<td class="label">${mBadge} Scenario misto 2028</td><td class="val" style="color:${mCol}">${netLbl}</td><td class="val" style="color:${mCol}">${f(r.ln)}</td><td class="val" style="color:${mCol}">${r.in2?f(r.in2):'—'}</td><td class="val" style="font-weight:700;color:${mCol}">${f(r.cn)}</td><td class="val" style="font-size:11px;">${dv(r.cn,r.caz)}</td>`;
+  b2.appendChild(tr2);
+  // Sportivo rif
+  const trS=document.createElement('tr'); trS.className='sub-row'; trS.style.background='rgba(24,95,165,0.03)';
+  trS.innerHTML=`<td class="label">${pill('Sport. 2028','rgba(24,95,165,.1)','#185FA5')} Cococo sportivo 2028 — rif. (SSD)</td><td class="val" style="color:#185FA5">${f(r.net)}</td><td class="val" style="color:#185FA5">${f(r.saL)}</td><td class="val" style="color:#185FA5">${f(r.saI)}</td><td class="val" style="font-weight:700;color:#185FA5">${f(r.saC)}</td><td class="val" style="font-size:11px;">${dv(r.saC,r.caz)}</td>`;
+  b2.appendChild(trS);
+});
+const addF2=(lbl,net,lor,ins,caz,cazRef,col)=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="l">${lbl}</td><td class="big" style="color:${col}">${f(net)}</td><td style="color:${col}">${f(lor)}</td><td style="color:${col}">${f(ins)}</td><td class="big" style="color:${col}">${f(caz)}</td><td style="font-size:12px;">${dv(caz,cazRef)}</td>`;
+  f2.appendChild(tr);
+};
+addF2('Totale 2025 — SSD',T.net,T.lor,T.ins,T.caz,T.caz,'#444');
+addF2('Totale scenario misto 2028',T.nn,T.ln,T.in2,T.cn,T.caz,'#3B6D11');
+addF2('Totale cococo sportivo 2028 — rif.',T.net,T.saL,T.saI,T.saC,T.caz,'#185FA5');
+})();
+</script>
+</body>
+</html>
