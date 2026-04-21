@@ -6,7 +6,7 @@
 <title>Point 2000 — Tariffe per Attività</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--orange:#e85d1a;--black:#111;--white:#fff;--off-white:#f5f4f2;--mid-grey:#888;--dark-grey:#444;--border:#e0e0e0;--card-bg:#f9f8f6;--green:#27500A;--green-bg:#EAF3DE;--red:#791F1F;--red-bg:#FCEBEB;--amber:#633806;--amber-bg:#FAEEDA;--blue:#0C447C;--blue-bg:#E6F1FB;}
+:root{--orange:#e85d1a;--black:#111;--white:#fff;--off-white:#f5f4f2;--mid-grey:#888;--dark-grey:#444;--border:#e0e0e0;--card-bg:#f9f8f6;--green:#27500A;--red2:#c0392b;--blue:#0C447C;}
 *{margin:0;padding:0;box-sizing:border-box;}html,body{overflow-x:hidden;}
 body{background:var(--white);color:var(--black);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
 header{background:var(--white);border-bottom:3px solid var(--orange);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
@@ -15,64 +15,75 @@ header{background:var(--white);border-bottom:3px solid var(--orange);padding:0 3
 .logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:19px;letter-spacing:1px;text-transform:uppercase;}
 .logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
 .nav{display:flex;gap:8px;}
-.btn{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid-grey);text-decoration:none;border:1.5px solid var(--border);padding:5px 12px;border-radius:2px;}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;text-decoration:none;border:1.5px solid #e0e0e0;padding:5px 12px;border-radius:2px;}
 .btn:hover{color:var(--orange);border-color:var(--orange);}
-.hero{padding:44px 32px 32px;border-bottom:1px solid var(--border);}
+.hero{padding:44px 32px 32px;border-bottom:1px solid #e0e0e0;}
 .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
 .hero-eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}
-.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(34px,6vw,64px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px;}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(34px,6vw,64px);line-height:.9;text-transform:uppercase;letter-spacing:-1px;}
 .hero h1 .o{color:var(--orange);}
-.hero-desc{font-size:13px;color:var(--dark-grey);max-width:620px;line-height:1.7;margin-top:10px;}
+.hero-desc{font-size:13px;color:#444;max-width:660px;line-height:1.7;margin-top:10px;}
 .lookup{background:var(--black);padding:20px 32px;}
 .lookup-title{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;}
 .lookup-grid{display:flex;flex-wrap:wrap;gap:8px;}
-.lk-item{background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:4px;padding:8px 14px;display:flex;align-items:center;gap:10px;}
-.lk-today{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:rgba(255,255,255,.5);}
-.lk-arr{font-size:12px;color:rgba(255,255,255,.2);}
-.lk-piva{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--orange);}
-.lk-y6{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:rgba(255,255,255,.3);}
-.section{padding:36px 32px;max-width:1100px;margin:0 auto;}
+.lk-item{background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.1);border-radius:4px;padding:8px 14px;display:flex;align-items:center;gap:10px;}
+.lk-t{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:rgba(255,255,255,.45);}
+.lk-a{font-size:12px;color:rgba(255,255,255,.2);}
+.lk-p{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--orange);}
+.lk-y{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:rgba(255,255,255,.3);}
+.section{padding:36px 32px;max-width:1200px;margin:0 auto;}
 .sec-title{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .sec-title::before{content:'';display:block;width:20px;height:2px;background:var(--orange);}
-.note-box{background:var(--card-bg);border-left:4px solid var(--orange);padding:13px 17px;margin-bottom:20px;border-radius:0 4px 4px 0;font-size:12px;color:var(--dark-grey);line-height:1.7;}
+.note-box{background:#f9f8f6;border-left:4px solid var(--orange);padding:13px 17px;margin-bottom:12px;border-radius:0 4px 4px 0;font-size:12px;color:#444;line-height:1.7;}
 .note-box strong{color:var(--black);}
+.assump-box{background:#EAF3DE;border-left:4px solid #3B6D11;padding:13px 17px;margin-bottom:20px;border-radius:0 4px 4px 0;font-size:12px;color:#27500A;line-height:1.7;}
+.assump-box strong{color:#1a3d09;font-weight:600;}
+.assump-box .assump-title{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;color:#3B6D11;}
 .tbl-wrap{overflow-x:auto;}
-table{width:100%;border-collapse:collapse;font-size:11.5px;min-width:900px;}
-thead tr.grp{background:var(--black);}
-thead tr.grp th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:8px 8px 5px;text-align:center;color:rgba(255,255,255,.4);border-left:1px solid rgba(255,255,255,.08);}
-thead tr.grp th:first-child{text-align:left;border-left:none;}
-thead tr.sub{background:#1a1a1a;}
-thead tr.sub th{font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 8px;text-align:right;white-space:nowrap;color:rgba(255,255,255,.35);border-left:1px solid rgba(255,255,255,.06);}
+table{width:100%;border-collapse:collapse;font-size:11.5px;min-width:980px;}
+thead tr.grp th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:8px 8px 5px;text-align:center;background:var(--black);color:rgba(255,255,255,.38);border-left:1px solid rgba(255,255,255,.08);}
+thead tr.grp th.l{text-align:left;border-left:none;}
+thead tr.grp th.gc{background:rgba(255,255,255,.055);color:rgba(255,255,255,.55);}
+thead tr.grp th.gb{background:rgba(59,109,17,.28);color:rgba(255,255,255,.7);}
+thead tr.grp th.gd{background:rgba(12,68,124,.28);color:rgba(255,255,255,.7);}
+thead tr.sub th{font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:5px 8px 4px;text-align:right;background:#1a1a1a;color:rgba(255,255,255,.32);border-left:1px solid rgba(255,255,255,.06);white-space:nowrap;}
 thead tr.sub th.l{text-align:left;border-left:none;}
-thead tr.sub th.bl{border-left:1px solid rgba(255,255,255,.12);}
-.grp-b{background:rgba(59,109,17,.3)!important;}
-.grp-b th{color:rgba(255,255,255,.65)!important;}
-.grp-c{background:rgba(12,68,124,.3)!important;}
-.grp-c th{color:rgba(255,255,255,.65)!important;}
-tbody tr.person-row{background:var(--off-white);border-top:2px solid var(--border);}
-tbody tr.person-row td{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--black);padding:7px 8px;}
-tbody tr.act-row{border-bottom:0.5px solid var(--border);}
-tbody tr.act-row:hover{background:var(--card-bg);}
-tbody td{padding:5px 8px;text-align:right;color:var(--dark-grey);}
+thead tr.sub th.sc{background:rgba(255,255,255,.03);color:rgba(255,255,255,.5);border-left:1px solid rgba(255,255,255,.1);}
+thead tr.sub th.sc2{background:rgba(255,255,255,.03);color:rgba(232,93,26,.75);}
+thead tr.sub th.sb{background:rgba(59,109,17,.2);color:rgba(255,255,255,.6);border-left:1px solid rgba(59,109,17,.3);}
+thead tr.sub th.sb2{background:rgba(59,109,17,.15);color:rgba(255,255,255,.5);}
+thead tr.sub th.sd{background:rgba(12,68,124,.2);color:rgba(255,255,255,.6);border-left:1px solid rgba(12,68,124,.3);}
+thead tr.sub th.sd2{background:rgba(12,68,124,.15);color:rgba(255,255,255,.5);}
+tbody tr.pr{background:#f5f4f2;border-top:2px solid #e0e0e0;}
+tbody tr.pr td{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:7px 8px;}
+tbody tr.ar{border-bottom:.5px solid #e0e0e0;}
+tbody tr.ar:hover{background:#f9f8f6;}
+tbody td{padding:5px 8px;text-align:right;color:#444;}
 tbody td.l{text-align:left;padding-left:20px;}
-tbody td.mono{font-family:'Barlow Condensed',sans-serif;font-size:12px;}
+tbody td.m{font-family:'Barlow Condensed',sans-serif;font-size:12px;}
+tbody td.bl{border-left:1px solid #e0e0e0;}
 tbody td.today{color:var(--black);font-weight:500;}
-tbody td.bl{border-left:1px solid var(--border);}
-tbody td.g{color:var(--green);font-weight:700;}
-tbody td.b{color:var(--blue);font-weight:700;}
-tbody td.gm{color:var(--green);}
-tbody td.bm{color:var(--blue);}
-tfoot tr{background:var(--off-white);border-top:2px solid var(--black);}
+tbody td.n0c{color:var(--black);font-weight:500;border-left:1px solid #e0e0e0;}
+tbody td.n1c{color:var(--red2);}
+tbody td.g{color:var(--green);font-weight:700;border-left:1px solid rgba(59,109,17,.2);}
+tbody td.gm{color:#3B6D11;}
+tbody td.gn{color:var(--green);font-weight:600;}
+tbody td.d{color:var(--blue);font-weight:700;border-left:1px solid rgba(12,68,124,.2);}
+tbody td.dm{color:#185FA5;}
+tbody td.dn{color:var(--blue);font-weight:600;}
+tfoot tr{background:#f5f4f2;border-top:2px solid var(--black);}
 tfoot td{padding:8px 8px;text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;}
 tfoot td.l{text-align:left;}
-tfoot td.bl{border-left:1px solid var(--border);}
+tfoot td.n0f{color:var(--black);border-left:1px solid #e0e0e0;}
+tfoot td.n1f{color:var(--red2);}
+tfoot td.gf{color:var(--green);border-left:1px solid rgba(59,109,17,.2);}
+tfoot td.df{color:var(--blue);border-left:1px solid rgba(12,68,124,.2);}
 .badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-left:6px;vertical-align:middle;}
-.badge.warn{background:var(--amber-bg);color:var(--amber);}
-.badge.fix{background:var(--blue-bg);color:var(--blue);}
+.bw{background:#FAEEDA;color:#633806;}
+.bf{background:#E6F1FB;color:#0C447C;}
 footer{background:var(--black);padding:24px 32px;}
-.fn{font-size:11px;color:rgba(255,255,255,.2);line-height:1.7;max-width:700px;}
+.fn{font-size:11px;color:rgba(255,255,255,.2);line-height:1.7;max-width:760px;}
 .fn strong{color:rgba(255,255,255,.35);}
-@media(max-width:640px){header{padding:0 16px;}.hero{padding:32px 16px;}.lookup{padding:16px;}.section{padding:24px 16px;}footer{padding:18px 16px;}}
 </style>
 </head>
 <body>
@@ -96,19 +107,25 @@ footer{background:var(--black);padding:24px 32px;}
 
 <div class="hero">
   <div class="hero-eyebrow">Dettaglio Operativo</div>
-  <h1>TARIFFE <span class="o">PER</span><br>ATTIVITÀ</h1>
-  <p class="hero-desc">Tariffa attuale e P.IVA proposta per ogni singola attività. Moltiplicatore uniforme <strong>×1,2098</strong> → tariffa adeguata al 5% (anni 1–5, stesso netto). Anno 6+: tariffa +€1,00/unità all'aliquota 15%. Per ogni scenario: fattura annua e netto percepito dal collaboratore.</p>
+  <h1>TARIFFE <span class="o">PER</span> ATTIVITÀ</h1>
+  <p class="hero-desc">Tariffa attuale e P.IVA proposta per ogni singola attività di ogni collaboratore. Le tariffe P.IVA sono arrotondate al valore unitario o al mezzo euro più vicino. Anno 6+: +€1,00/unità all'aliquota 15%. Per ogni scenario è mostrato fattura annua e netto percepito dal collaboratore.</p>
 </div>
 
 <div class="lookup">
-  <div class="lookup-title">Conversione rapida — tariffa oggi → P.IVA adeguata</div>
-  <div class="lookup-grid" id="lookup-grid"></div>
+  <div class="lookup-title">Conversione rapida — tariffa oggi → P.IVA arrotondata (→ anno 6+)</div>
+  <div class="lookup-grid" id="lkg"></div>
 </div>
 
 <div class="section">
-  <div class="sec-title">Dettaglio per collaboratore e attività</div>
+  <div class="sec-title">Dettaglio per collaboratore e attività — 27 righe</div>
+
   <div class="note-box">
-    <strong>Netto percepito</strong> = fattura annua × (1 − 0,67 × (aliquota + 26,23%)). Anni 1–5 con imposta 5%: fattore netto = 0,7908. Anno 6+ con imposta 15%: fattore netto = 0,7238. Le colonne netto sono per singola attività trattata in isolamento — per chi ha più attività il netto reale è quello complessivo (vedi Simulazione P.IVA).
+    <strong>Netto oggi</strong> = lordo × 0,9567 (INPS lav. 4,33%, IRPEF=0 sotto €15k). <strong>Netto 2027</strong> = lordo × 0,9133 (INPS lav. 8,67%, fine agevolazione 50%). <strong>Netto P.IVA</strong>: fattura × 0,7908 al 5% · fattura × 0,7238 al 15%. Tariffe P.IVA arrotondate al €0,50 più vicino sul valore teorico (×1,2098).
+  </div>
+
+  <div class="assump-box">
+    <div class="assump-title">Assumptions — Condizioni di transizione</div>
+    <strong>Benefit una tantum apertura P.IVA: €500</strong> — Point 2000 riconosce un contributo una tantum di €500 a ogni collaboratore che apre la P.IVA forfettaria nell'ambito della transizione contrattuale. Il benefit è erogato al momento della prima fatturazione e copre le spese di apertura e prima consulenza del commercialista. Non incluso nei calcoli di fattura e netto della tabella.
   </div>
 
   <div class="tbl-wrap">
@@ -120,16 +137,20 @@ footer{background:var(--black);padding:24px 32px;}
         <th rowspan="2">Ore/anno</th>
         <th rowspan="2">Lordo annuo</th>
         <th rowspan="2">Tariffa oggi</th>
-        <th colspan="3" class="grp-b bl">P.IVA adeguata — anni 1–5 (5%)</th>
-        <th colspan="3" class="grp-c bl">P.IVA anno 6+ (+€1/unità, 15%)</th>
+        <th colspan="2" class="gc">Netto collaboratore</th>
+        <th colspan="3" class="gb">P.IVA adeguata — anni 1–5 (5%)</th>
+        <th colspan="3" class="gd">P.IVA anno 6+ (+€1/unità, 15%)</th>
       </tr>
       <tr class="sub">
-        <th class="bl grp-b">Tariffa €/h</th>
-        <th class="grp-b">Fattura annua</th>
-        <th class="grp-b">Netto percepito</th>
-        <th class="bl grp-c">Tariffa €/h</th>
-        <th class="grp-c">Fattura annua</th>
-        <th class="grp-c">Netto percepito</th>
+        <th class="l" style="visibility:hidden"></th>
+        <th class="sc">Oggi<br><span style="font-size:8px;font-weight:400;">cococo agevol.</span></th>
+        <th class="sc2">2027<br><span style="font-size:8px;font-weight:400;">cococo pieno</span></th>
+        <th class="sb">Tariffa €/h</th>
+        <th class="sb2">Fattura annua</th>
+        <th class="sb2">Netto</th>
+        <th class="sd">Tariffa €/h</th>
+        <th class="sd2">Fattura annua</th>
+        <th class="sd2">Netto</th>
       </tr>
     </thead>
     <tbody id="tbody"></tbody>
@@ -140,114 +161,57 @@ footer{background:var(--black);padding:24px 32px;}
 
 <footer>
   <div class="fn">
-    <strong>Documento confidenziale — Aprile 2026.</strong> Tariffe P.IVA calcolate con moltiplicatore ×1,2098 = (1−0,13/3)÷(1−0,67×0,3123). Netto 5% = fattura×0,7908 · Netto 15% = fattura×0,7238. Battilana Barbara: lordo annuo corretto (Fitness €16/h, non €26/h); possibile IRPEF sul CoCoCo sopra €15k — da verificare con consulente.
+    <strong>Documento confidenziale — Aprile 2026.</strong> Tariffe P.IVA arrotondate al €0,50 più vicino sul valore teorico ×1,2098 = (1−0,13/3)÷(1−0,67×0,3123). Netto oggi = lordo×0,9567. Netto 2027 = lordo×0,9133. Netto P.IVA: 5%→×0,7908 · 15%→×0,7238. Battilana Barbara: Fitness corretto a €16/h; lordo annuo >€15k, possibile IRPEF sul CoCoCo eccedente — verificare con il consulente.
   </div>
 </footer>
 
 <script>
 (function(){
-const D=[
- {n:"Giulia Pagliaccia",    low:false,irpef:false, acts:[
-  {a:"Fitness",      om:54, oa:572.4,  t0:20, la:11448, t5:24.20,f5:13852,n5:10954, t6:25.20,f6:14424,n6:10439},
-  {a:"Personal",     om:18, oa:190.8,  t0:20, la:3816,  t5:24.20,f5:4617, n5:3651,  t6:25.20,f6:4808, n6:3480},
- ]},
- {n:"Valerio Palermo",      low:false,irpef:false, acts:[
-  {a:"Sala Pesi",    om:19, oa:201.4,  t0:8,  la:1611,  t5:9.68, f5:1950, n5:1542,  t6:10.68,f6:2151, n6:1557},
-  {a:"Fitness",      om:17, oa:180.2,  t0:18, la:3244,  t5:21.78,f5:3925, n5:3104,  t6:22.78,f6:4105, n6:2971},
-  {a:"Personal",     om:38, oa:402.8,  t0:20, la:8056,  t5:24.20,f5:9748, n5:7708,  t6:25.20,f6:10151,n6:7347},
- ]},
- {n:"Manuel Di Censi",      low:false,irpef:false, acts:[
-  {a:"Sala Pesi",    om:2,  oa:21.2,   t0:7,  la:148,   t5:8.47, f5:180,  n5:142,   t6:9.47, f6:201,  n6:145},
-  {a:"Fitness",      om:72, oa:763.2,  t0:18, la:13738, t5:21.78,f5:16622,n5:13144, t6:22.78,f6:17386,n6:12583},
-  {a:"Personal",     om:2,  oa:21.2,   t0:20, la:424,   t5:24.20,f5:513,  n5:406,   t6:25.20,f6:534,  n6:386},
- ]},
- {n:"Filippo Fiorita",      low:false,irpef:false, acts:[
-  {a:"Sala Pesi",    om:35, oa:371.0,  t0:7,  la:2597,  t5:8.47, f5:3142, n5:2485,  t6:9.47, f6:3513, n6:2543},
-  {a:"Fitness",      om:35, oa:371.0,  t0:18, la:6678,  t5:21.78,f5:8080, n5:6389,  t6:22.78,f6:8451, n6:6116},
-  {a:"Personal",     om:2,  oa:21.2,   t0:20, la:424,   t5:24.20,f5:513,  n5:406,   t6:25.20,f6:534,  n6:386},
- ]},
- {n:"Battilana Barbara",    low:false,irpef:true,  acts:[
-  {a:"Aqua Fitness", om:31, oa:328.6,  t0:16, la:5258,  t5:19.36,f5:6362, n5:5031,  t6:20.36,f6:6690, n6:4842},
-  {a:"Fitness",      om:49, oa:519.4,  t0:16, la:8310,  t5:19.36,f5:10056,n5:7952,  t6:20.36,f6:10575,n6:7654, fix:true},
-  {a:"Personal",     om:6,  oa:63.6,   t0:20, la:1272,  t5:24.20,f5:1539, n5:1217,  t6:25.20,f6:1603, n6:1160},
- ]},
- {n:"Mariottini Miriana",   low:false,irpef:false, acts:[
-  {a:"Fitness",      om:36, oa:381.6,  t0:18, la:6869,  t5:21.78,f5:8311, n5:6572,  t6:22.78,f6:8693, n6:6292},
- ]},
- {n:"Bertani Federica",     low:false,irpef:false, acts:[
-  {a:"Aqua Fitness", om:37, oa:392.2,  t0:16, la:6275,  t5:19.36,f5:7593, n5:6004,  t6:20.36,f6:7985, n6:5779},
- ]},
- {n:"Tufano Annabella",     low:false,irpef:false, acts:[
-  {a:"Aqua Fitness", om:31, oa:328.6,  t0:16, la:5258,  t5:19.36,f5:6362, n5:5031,  t6:20.36,f6:6690, n6:4842},
- ]},
- {n:"La Banca Alessia",     low:false,irpef:false, acts:[
-  {a:"Fitness",      om:53, oa:561.8,  t0:15, la:8427,  t5:18.15,f5:10197,n5:8063,  t6:19.15,f6:10758,n6:7786},
-  {a:"Sala Pesi",    om:11, oa:116.6,  t0:7,  la:816,   t5:8.47, f5:988,  n5:781,   t6:9.47, f6:1104, n6:799},
- ]},
- {n:"Pascolat Paola",       low:false,irpef:false, acts:[
-  {a:"Aqua Fitness", om:26, oa:275.6,  t0:17, la:4685,  t5:20.57,f5:5669, n5:4483,  t6:21.57,f6:5945, n6:4303},
- ]},
- {n:"Re Alessandra",        low:true, irpef:false, acts:[
-  {a:"Fitness",      om:6,  oa:63.6,   t0:18, la:1145,  t5:21.78,f5:1385, n5:1095,  t6:22.78,f6:1449, n6:1049},
-  {a:"Personal",     om:1,  oa:10.6,   t0:20, la:212,   t5:24.20,f5:257,  n5:203,   t6:25.20,f6:267,  n6:193},
- ]},
- {n:"Zagaria Beatrice",     low:true, irpef:false, acts:[
-  {a:"Sala Pesi",    om:24, oa:254.4,  t0:7,  la:1781,  t5:8.47, f5:2155, n5:1704,  t6:9.47, f6:2409, n6:1744},
- ]},
- {n:"Portale Alice",        low:false,irpef:false, acts:[
-  {a:"Fitness",      om:28, oa:296.8,  t0:15, la:4452,  t5:18.15,f5:5387, n5:4260,  t6:19.15,f6:5684, n6:4114},
- ]},
- {n:"Pino Micol",           low:true, irpef:false, acts:[
-  {a:"Fitness",      om:2,  oa:21.2,   t0:20, la:424,   t5:24.20,f5:513,  n5:406,   t6:25.20,f6:534,  n6:386},
- ]},
- {n:"Pensini Arianna",      low:true, irpef:false, acts:[
-  {a:"Fitness",      om:8,  oa:84.8,   t0:18, la:1526,  t5:21.78,f5:1847, n5:1461,  t6:22.78,f6:1932, n6:1398},
- ]},
- {n:"Antonio Quaglia",      low:true, irpef:false, acts:[
-  {a:"Fitness",      om:11, oa:116.6,  t0:15, la:1749,  t5:18.15,f5:2116, n5:1673,  t6:19.15,f6:2233, n6:1616},
- ]},
-];
-
 const fi=v=>'€'+Math.round(v).toLocaleString('it-IT');
-const fh=v=>'€'+parseFloat(v).toFixed(2);
+const fh=v=>'€'+(Number.isInteger(v*2)?v.toFixed(2):v.toFixed(2));
 
-// Lookup
-const rates=[7,8,15,16,17,18,20];
-const grid=document.getElementById('lookup-grid');
-rates.forEach(r=>{
- const t5=parseFloat((r*1.20981).toFixed(2));
- const t6=parseFloat((t5+1).toFixed(2));
+// Lookup conversione arrotondata
+const lkRates=[
+ {t0:7,  t5:8.50, t6:9.50},
+ {t0:8,  t5:9.50, t6:10.50},
+ {t0:15, t5:18.00,t6:19.00},
+ {t0:16, t5:19.50,t6:20.50},
+ {t0:17, t5:20.50,t6:21.50},
+ {t0:18, t5:22.00,t6:23.00},
+ {t0:20, t5:24.00,t6:25.00},
+];
+lkRates.forEach(r=>{
  const d=document.createElement('div');d.className='lk-item';
- d.innerHTML=`<span class="lk-today">${fh(r)}</span><span class="lk-arr">→</span><span class="lk-piva">${fh(t5)}</span><span class="lk-y6">(${fh(t6)})</span>`;
- grid.appendChild(d);
+ d.innerHTML=`<span class="lk-t">€${r.t0.toFixed(2)}</span><span class="lk-a">→</span><span class="lk-p">€${r.t5.toFixed(2)}</span><span class="lk-y">(€${r.t6.toFixed(2)})</span>`;
+ document.getElementById('lkg').appendChild(d);
 });
 
+const D=[{"n":"Giulia Pagliaccia","low":false,"irpef":false,"acts":[{"a":"Fitness","om":54,"oa":572.4,"t0":20,"la":11448,"n0":10952,"n1":10456,"t5":24.0,"f5":13738,"n5":10863,"t6":25.0,"f6":14310,"n6":10357,"fix":false},{"a":"Personal","om":18,"oa":190.8,"t0":20,"la":3816,"n0":3651,"n1":3485,"t5":24.0,"f5":4579,"n5":3621,"t6":25.0,"f6":4770,"n6":3452,"fix":false}]},{"n":"Valerio Palermo","low":false,"irpef":false,"acts":[{"a":"Sala Pesi","om":19,"oa":201.4,"t0":8,"la":1611,"n0":1541,"n1":1471,"t5":9.5,"f5":1913,"n5":1513,"t6":10.5,"f6":2115,"n6":1531,"fix":false},{"a":"Fitness","om":17,"oa":180.2,"t0":18,"la":3244,"n0":3103,"n1":2963,"t5":22.0,"f5":3964,"n5":3135,"t6":23.0,"f6":4145,"n6":3000,"fix":false},{"a":"Personal","om":38,"oa":402.8,"t0":20,"la":8056,"n0":7707,"n1":7358,"t5":24.0,"f5":9667,"n5":7644,"t6":25.0,"f6":10070,"n6":7288,"fix":false}]},{"n":"Manuel Di Censi","low":false,"irpef":false,"acts":[{"a":"Sala Pesi","om":2,"oa":21.2,"t0":7,"la":148,"n0":142,"n1":135,"t5":8.5,"f5":180,"n5":142,"t6":9.5,"f6":201,"n6":145,"fix":false},{"a":"Fitness","om":72,"oa":763.2,"t0":18,"la":13738,"n0":13143,"n1":12547,"t5":22.0,"f5":16790,"n5":13277,"t6":23.0,"f6":17554,"n6":12705,"fix":false},{"a":"Personal","om":2,"oa":21.2,"t0":20,"la":424,"n0":406,"n1":387,"t5":24.0,"f5":509,"n5":402,"t6":25.0,"f6":530,"n6":384,"fix":false}]},{"n":"Filippo Fiorita","low":false,"irpef":false,"acts":[{"a":"Sala Pesi","om":35,"oa":371.0,"t0":7,"la":2597,"n0":2484,"n1":2372,"t5":8.5,"f5":3154,"n5":2494,"t6":9.5,"f6":3524,"n6":2551,"fix":false},{"a":"Fitness","om":35,"oa":371.0,"t0":18,"la":6678,"n0":6389,"n1":6099,"t5":22.0,"f5":8162,"n5":6454,"t6":23.0,"f6":8533,"n6":6176,"fix":false},{"a":"Personal","om":2,"oa":21.2,"t0":20,"la":424,"n0":406,"n1":387,"t5":24.0,"f5":509,"n5":402,"t6":25.0,"f6":530,"n6":384,"fix":false}]},{"n":"Battilana Barbara","low":false,"irpef":true,"acts":[{"a":"Aqua Fitness","om":31,"oa":328.6,"t0":16,"la":5258,"n0":5030,"n1":4802,"t5":19.5,"f5":6408,"n5":5067,"t6":20.5,"f6":6736,"n6":4875,"fix":false},{"a":"Fitness","om":49,"oa":519.4,"t0":16,"la":8310,"n0":7950,"n1":7590,"t5":19.5,"f5":10128,"n5":8009,"t6":20.5,"f6":10648,"n6":7707,"fix":true},{"a":"Personal","om":6,"oa":63.6,"t0":20,"la":1272,"n0":1217,"n1":1162,"t5":24.0,"f5":1526,"n5":1207,"t6":25.0,"f6":1590,"n6":1151,"fix":false}]},{"n":"Mariottini Miriana","low":false,"irpef":false,"acts":[{"a":"Fitness","om":36,"oa":381.6,"t0":18,"la":6869,"n0":6571,"n1":6274,"t5":22.0,"f5":8395,"n5":6638,"t6":23.0,"f6":8777,"n6":6352,"fix":false}]},{"n":"Bertani Federica","low":false,"irpef":false,"acts":[{"a":"Aqua Fitness","om":37,"oa":392.2,"t0":16,"la":6275,"n0":6003,"n1":5731,"t5":19.5,"f5":7648,"n5":6048,"t6":20.5,"f6":8040,"n6":5819,"fix":false}]},{"n":"Tufano Annabella","low":false,"irpef":false,"acts":[{"a":"Aqua Fitness","om":31,"oa":328.6,"t0":16,"la":5258,"n0":5030,"n1":4802,"t5":19.5,"f5":6408,"n5":5067,"t6":20.5,"f6":6736,"n6":4875,"fix":false}]},{"n":"La Banca Alessia","low":false,"irpef":false,"acts":[{"a":"Fitness","om":53,"oa":561.8,"t0":15,"la":8427,"n0":8062,"n1":7697,"t5":18.0,"f5":10112,"n5":7996,"t6":19.0,"f6":10674,"n6":7725,"fix":false},{"a":"Sala Pesi","om":11,"oa":116.6,"t0":7,"la":816,"n0":781,"n1":745,"t5":8.5,"f5":991,"n5":784,"t6":9.5,"f6":1108,"n6":802,"fix":false}]},{"n":"Pascolat Paola","low":false,"irpef":false,"acts":[{"a":"Aqua Fitness","om":26,"oa":275.6,"t0":17,"la":4685,"n0":4482,"n1":4279,"t5":20.5,"f5":5650,"n5":4468,"t6":21.5,"f6":5925,"n6":4288,"fix":false}]},{"n":"Re Alessandra","low":true,"irpef":false,"acts":[{"a":"Fitness","om":6,"oa":63.6,"t0":18,"la":1145,"n0":1095,"n1":1046,"t5":22.0,"f5":1399,"n5":1106,"t6":23.0,"f6":1463,"n6":1059,"fix":false},{"a":"Personal","om":1,"oa":10.6,"t0":20,"la":212,"n0":203,"n1":194,"t5":24.0,"f5":254,"n5":201,"t6":25.0,"f6":265,"n6":192,"fix":false}]},{"n":"Zagaria Beatrice","low":true,"irpef":false,"acts":[{"a":"Sala Pesi","om":24,"oa":254.4,"t0":7,"la":1781,"n0":1704,"n1":1627,"t5":8.5,"f5":2162,"n5":1710,"t6":9.5,"f6":2417,"n6":1749,"fix":false}]},{"n":"Portale Alice","low":false,"irpef":false,"acts":[{"a":"Fitness","om":28,"oa":296.8,"t0":15,"la":4452,"n0":4259,"n1":4066,"t5":18.0,"f5":5342,"n5":4224,"t6":19.0,"f6":5639,"n6":4081,"fix":false}]},{"n":"Pino Micol","low":true,"irpef":false,"acts":[{"a":"Fitness","om":2,"oa":21.2,"t0":20,"la":424,"n0":406,"n1":387,"t5":24.0,"f5":509,"n5":402,"t6":25.0,"f6":530,"n6":384,"fix":false}]},{"n":"Pensini Arianna","low":true,"irpef":false,"acts":[{"a":"Fitness","om":8,"oa":84.8,"t0":18,"la":1526,"n0":1460,"n1":1394,"t5":22.0,"f5":1866,"n5":1476,"t6":23.0,"f6":1950,"n6":1411,"fix":false}]},{"n":"Antonio Quaglia","low":true,"irpef":false,"acts":[{"a":"Fitness","om":11,"oa":116.6,"t0":15,"la":1749,"n0":1673,"n1":1597,"t5":18.0,"f5":2099,"n5":1660,"t6":19.0,"f6":2215,"n6":1603,"fix":false}]}];
+
 const tbody=document.getElementById('tbody');
-let totLa=0,totF5=0,totN5=0,totF6=0,totN6=0;
-
 D.forEach(p=>{
- const pr=document.createElement('tr');pr.className='person-row';
- const lB=p.low?'<span class="badge warn">P.IVA sconsigliata</span>':'';
- const iB=p.irpef?'<span class="badge warn">verif. IRPEF</span>':'';
- pr.innerHTML=`<td colspan="11" class="l">${p.n}${lB}${iB}</td>`;
+ const pr=document.createElement('tr');pr.className='pr';
+ const lb=p.low?'<span class="badge bw">P.IVA sconsigliata</span>':'';
+ const ib=p.irpef?'<span class="badge bw">verif. IRPEF</span>':'';
+ pr.innerHTML=`<td colspan="13" class="l">${p.n}${lb}${ib}</td>`;
  tbody.appendChild(pr);
-
  p.acts.forEach(a=>{
-  totLa+=a.la;totF5+=a.f5;totN5+=a.n5;totF6+=a.f6;totN6+=a.n6;
-  const fixB=a.fix?'<span class="badge fix">corretto €16</span>':'';
-  const ar=document.createElement('tr');ar.className='act-row';
+  const fb=a.fix?'<span class="badge bf">corretto €16</span>':'';
+  const ar=document.createElement('tr');ar.className='ar';
   ar.innerHTML=`
-   <td class="l">${a.a}${fixB}</td>
-   <td class="mono">${a.om}</td>
-   <td class="mono">${a.oa.toLocaleString('it-IT')}</td>
-   <td class="mono" style="color:var(--mid-grey)">${fi(a.la)}</td>
-   <td class="mono today">${fh(a.t0)}</td>
-   <td class="mono g bl">${fh(a.t5)}</td>
-   <td class="mono gm">${fi(a.f5)}</td>
-   <td class="mono g">${fi(a.n5)}</td>
-   <td class="mono b bl">${fh(a.t6)}</td>
-   <td class="mono bm">${fi(a.f6)}</td>
-   <td class="mono b">${fi(a.n6)}</td>`;
+   <td class="l">${a.a}${fb}</td>
+   <td class="m">${a.om}</td>
+   <td class="m">${a.oa.toLocaleString('it-IT')}</td>
+   <td class="m" style="color:#888">${fi(a.la)}</td>
+   <td class="m today">${fh(a.t0)}</td>
+   <td class="m n0c">${fi(a.n0)}</td>
+   <td class="m n1c">${fi(a.n1)}</td>
+   <td class="m g">${fh(a.t5)}</td>
+   <td class="m gm">${fi(a.f5)}</td>
+   <td class="m gn">${fi(a.n5)}</td>
+   <td class="m d">${fh(a.t6)}</td>
+   <td class="m dm">${fi(a.f6)}</td>
+   <td class="m dn">${fi(a.n6)}</td>`;
   tbody.appendChild(ar);
  });
 });
@@ -257,14 +221,16 @@ const tr=document.createElement('tr');
 tr.innerHTML=`
  <td class="l">Totale — 27 righe attività</td>
  <td></td><td></td>
- <td class="mono" style="color:var(--mid-grey)">${fi(totLa)}</td>
+ <td class="m" style="color:#888">${fi(110643)}</td>
  <td></td>
- <td class="bl"></td>
- <td class="mono" style="color:var(--green)">${fi(totF5)}</td>
- <td class="mono" style="color:var(--green);font-size:13px">${fi(totN5)}</td>
- <td class="bl"></td>
- <td class="mono" style="color:var(--blue)">${fi(totF6)}</td>
- <td class="mono" style="color:var(--blue);font-size:13px">${fi(totN6)}</td>`;
+ <td class="m n0f">${fi(105850)}</td>
+ <td class="m n1f">${fi(101053)}</td>
+ <td class="gf"></td>
+ <td class="m gf">${fi(134062)}</td>
+ <td class="m gf">${fi(106010)}</td>
+ <td class="df"></td>
+ <td class="m df">${fi(140995)}</td>
+ <td class="m df">${fi(102046)}</td>`;
 tf.appendChild(tr);
 })();
 </script>
