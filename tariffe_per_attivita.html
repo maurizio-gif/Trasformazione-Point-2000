@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point 2000 — Tariffe per Attività</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#e85d1a;--black:#111;--white:#fff;--off-white:#f5f4f2;--mid-grey:#888;--dark-grey:#444;--border:#e0e0e0;--card-bg:#f9f8f6;--green:#27500A;--green-bg:#EAF3DE;--red:#791F1F;--red-bg:#FCEBEB;--amber:#633806;--amber-bg:#FAEEDA;--blue:#0C447C;--blue-bg:#E6F1FB;}
+*{margin:0;padding:0;box-sizing:border-box;}html,body{overflow-x:hidden;}
+body{background:var(--white);color:var(--black);font-family:'Barlow',sans-serif;-webkit-font-smoothing:antialiased;}
+header{background:var(--white);border-bottom:3px solid var(--orange);padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-icon{width:36px;height:36px;background:var(--orange);clip-path:polygon(20% 0%,80% 0%,100% 50%,80% 100%,20% 100%,0% 50%);}
+.logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:19px;letter-spacing:1px;text-transform:uppercase;}
+.logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
+.nav{display:flex;gap:8px;}
+.btn{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid-grey);text-decoration:none;border:1.5px solid var(--border);padding:5px 12px;border-radius:2px;}
+.btn:hover{color:var(--orange);border-color:var(--orange);}
+.hero{padding:44px 32px 32px;border-bottom:1px solid var(--border);}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(34px,6vw,64px);line-height:0.9;text-transform:uppercase;letter-spacing:-1px;margin-bottom:8px;}
+.hero h1 .o{color:var(--orange);}
+.hero-desc{font-size:13px;color:var(--dark-grey);max-width:600px;line-height:1.7;margin-top:10px;}
+/* Lookup box */
+.lookup{background:var(--black);padding:20px 32px;}
+.lookup-title{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;}
+.lookup-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.lk-item{background:rgba(255,255,255,.04);border:0.5px solid rgba(255,255,255,.1);border-radius:4px;padding:8px 14px;display:flex;align-items:center;gap:10px;}
+.lk-today{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:rgba(255,255,255,.5);}
+.lk-arr{font-size:12px;color:rgba(255,255,255,.2);}
+.lk-piva{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--orange);}
+.lk-y6{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:rgba(255,255,255,.3);}
+/* Main section */
+.section{padding:36px 32px;max-width:960px;margin:0 auto;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.sec-title::before{content:'';display:block;width:20px;height:2px;background:var(--orange);}
+.note-box{background:var(--card-bg);border-left:4px solid var(--orange);padding:13px 17px;margin-bottom:20px;border-radius:0 4px 4px 0;font-size:12px;color:var(--dark-grey);line-height:1.7;}
+.note-box strong{color:var(--black);}
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
+thead th{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:9px 10px;text-align:right;white-space:nowrap;background:var(--black);color:rgba(255,255,255,.4);}
+thead th.l{text-align:left;min-width:150px;}
+thead th.c{text-align:center;}
+thead th.grp-a{background:rgba(255,255,255,.04);}
+thead th.grp-b{background:rgba(59,109,17,.25);color:rgba(255,255,255,.65);}
+thead th.grp-c{background:rgba(163,45,45,.2);color:rgba(255,255,255,.65);}
+tbody tr.person-row{background:var(--off-white);border-top:2px solid var(--border);}
+tbody tr.person-row td{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--black);padding:7px 10px;}
+tbody tr.act-row{border-bottom:0.5px solid var(--border);}
+tbody tr.act-row:hover{background:var(--card-bg);}
+tbody td{padding:6px 10px;text-align:right;color:var(--dark-grey);}
+tbody td.l{text-align:left;padding-left:22px;}
+tbody td.att{font-size:12px;color:var(--dark-grey);}
+tbody td.mono{font-family:'Barlow Condensed',sans-serif;font-size:13px;}
+tbody td.today{color:var(--black);font-weight:500;}
+tbody td.piva{color:var(--green);font-weight:700;}
+tbody td.y6{color:var(--blue);}
+tbody td.lordo{color:var(--mid-grey);}
+tfoot tr{background:var(--off-white);border-top:2px solid var(--black);}
+tfoot td{padding:9px 10px;text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;}
+tfoot td.l{text-align:left;}
+.badge{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-left:6px;vertical-align:middle;}
+.badge.warn{background:var(--amber-bg);color:var(--amber);}
+footer{background:var(--black);padding:24px 32px;}
+.fn{font-size:11px;color:rgba(255,255,255,.2);line-height:1.7;max-width:700px;}
+.fn strong{color:rgba(255,255,255,.35);}
+@media(max-width:640px){header{padding:0 16px;}.hero{padding:32px 16px;}.lookup{padding:16px;}.section{padding:24px 16px;}footer{padding:18px 16px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div><div class="logo-text">Point 2000</div><div class="logo-sub">Tariffe per Attività</div></div>
+  </div>
+  <div class="nav">
+    <a href="personale_tariffe_piva.html" class="btn">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Simulazione P.IVA
+    </a>
+    <a href="index.html" class="btn">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Report
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Dettaglio Operativo</div>
+  <h1>TARIFFE <span class="o">PER</span><br>ATTIVITÀ</h1>
+  <p class="hero-desc">Tariffa attuale e tariffa P.IVA proposta per ogni singola attività di ogni collaboratore. Il moltiplicatore è uniforme: <strong>×1,2098</strong> su ogni tariffa attuale dà la P.IVA adeguata al 5% (anni 1–5). Anno 6+: tariffa adeguata +€1,00 per ogni unità.</p>
+</div>
+
+<!-- Lookup universale -->
+<div class="lookup">
+  <div class="lookup-title">Tabella di conversione — tariffa attuale → P.IVA</div>
+  <div class="lookup-grid" id="lookup-grid"></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">Dettaglio per collaboratore e attività</div>
+  <div class="note-box">
+    <strong>Ore annue</strong> = ore mensili × 10,6 (10 mesi pieni + 2 mesi al 30% luglio–agosto). <strong>Tariffa P.IVA adeguata</strong>: garantisce lo stesso netto di oggi con imposta sostitutiva al 5%. <strong>Anno 6+</strong>: la tariffa sale di +€1 per ogni ora/lezione; l'aliquota passa al 15%.
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="l">Collaboratore / Attività</th>
+        <th class="grp-a">Ore/mese</th>
+        <th class="grp-a">Ore/anno</th>
+        <th class="grp-a">Lordo annuo</th>
+        <th class="grp-a">Tariffa oggi</th>
+        <th class="grp-b">Tariffa P.IVA 5%<br><span style="font-size:9px;opacity:.7;">anni 1–5</span></th>
+        <th class="grp-b">Fattura annua<br><span style="font-size:9px;opacity:.7;">anni 1–5</span></th>
+        <th class="grp-c">Tariffa P.IVA 15%<br><span style="font-size:9px;opacity:.7;">anno 6+ (+€1)</span></th>
+        <th class="grp-c">Fattura annua<br><span style="font-size:9px;opacity:.7;">anno 6+</span></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+    <tfoot id="tfoot"></tfoot>
+  </table>
+  </div>
+</div>
+
+<footer>
+  <div class="fn">
+    <strong>Documento confidenziale — Aprile 2026.</strong> Tariffe P.IVA calcolate con moltiplicatore ×1,2098 = (1−0,13/3)/(1−0,67×0,3123). Anno 6+: +€1/unità su tariffa adeguata 5%, aliquota imposta 15%. Battilana: lordo annuo >€15k, possibile IRPEF sulla parte eccedente nel CoCoCo — da verificare con consulente del lavoro.
+  </div>
+</footer>
+
+<script>
+(function(){
+const D=[
+ {n:"Giulia Pagliaccia",    low:false, irpef:false, acts:[
+   {a:"Fitness",       om:54, oa:572.4, t0:20,  la:11448, t5:24.20, f5:13852, t6:25.20, f6:14424},
+   {a:"Personal",      om:18, oa:190.8, t0:20,  la:3816,  t5:24.20, f5:4617,  t6:25.20, f6:4808},
+ ]},
+ {n:"Valerio Palermo",      low:false, irpef:false, acts:[
+   {a:"Sala Pesi",     om:19, oa:201.4, t0:8,   la:1611,  t5:9.68,  f5:1950,  t6:10.68, f6:2151},
+   {a:"Fitness",       om:17, oa:180.2, t0:18,  la:3244,  t5:21.78, f5:3925,  t6:22.78, f6:4105},
+   {a:"Personal",      om:38, oa:402.8, t0:20,  la:8056,  t5:24.20, f5:9748,  t6:25.20, f6:10151},
+ ]},
+ {n:"Manuel Di Censi",      low:false, irpef:false, acts:[
+   {a:"Sala Pesi",     om:2,  oa:21.2,  t0:7,   la:148,   t5:8.47,  f5:180,   t6:9.47,  f6:201},
+   {a:"Fitness",       om:72, oa:763.2, t0:18,  la:13738, t5:21.78, f5:16623, t6:22.78, f6:17386},
+   {a:"Personal",      om:2,  oa:21.2,  t0:20,  la:424,   t5:24.20, f5:513,   t6:25.20, f6:534},
+ ]},
+ {n:"Filippo Fiorita",      low:false, irpef:false, acts:[
+   {a:"Sala Pesi",     om:35, oa:371.0, t0:7,   la:2597,  t5:8.47,  f5:3142,  t6:9.47,  f6:3513},
+   {a:"Fitness",       om:35, oa:371.0, t0:18,  la:6678,  t5:21.78, f5:8080,  t6:22.78, f6:8451},
+   {a:"Personal",      om:2,  oa:21.2,  t0:20,  la:424,   t5:24.20, f5:513,   t6:25.20, f6:534},
+ ]},
+ {n:"Battilana Barbara",    low:false, irpef:true,  acts:[
+   {a:"Aqua Fitness",  om:31, oa:328.6, t0:16,  la:5258,  t5:19.36, f5:6362,  t6:20.36, f6:6690},
+   {a:"Fitness",       om:49, oa:519.4, t0:26,  la:13504, t5:31.46, f5:16340, t6:32.46, f6:16860},
+   {a:"Personal",      om:6,  oa:63.6,  t0:20,  la:1272,  t5:24.20, f5:1539,  t6:25.20, f6:1603},
+ ]},
+ {n:"Mariottini Miriana",   low:false, irpef:false, acts:[
+   {a:"Fitness",       om:36, oa:381.6, t0:18,  la:6869,  t5:21.78, f5:8311,  t6:22.78, f6:8693},
+ ]},
+ {n:"Bertani Federica",     low:false, irpef:false, acts:[
+   {a:"Aqua Fitness",  om:37, oa:392.2, t0:16,  la:6275,  t5:19.36, f5:7593,  t6:20.36, f6:7985},
+ ]},
+ {n:"Tufano Annabella",     low:false, irpef:false, acts:[
+   {a:"Aqua Fitness",  om:31, oa:328.6, t0:16,  la:5258,  t5:19.36, f5:6362,  t6:20.36, f6:6690},
+ ]},
+ {n:"La Banca Alessia",     low:false, irpef:false, acts:[
+   {a:"Fitness",       om:53, oa:561.8, t0:15,  la:8427,  t5:18.15, f5:10197, t6:19.15, f6:10758},
+   {a:"Sala Pesi",     om:11, oa:116.6, t0:7,   la:816,   t5:8.47,  f5:988,   t6:9.47,  f6:1104},
+ ]},
+ {n:"Pascolat Paola",       low:false, irpef:false, acts:[
+   {a:"Aqua Fitness",  om:26, oa:275.6, t0:17,  la:4685,  t5:20.57, f5:5669,  t6:21.57, f6:5945},
+ ]},
+ {n:"Re Alessandra",        low:true,  irpef:false, acts:[
+   {a:"Fitness",       om:6,  oa:63.6,  t0:18,  la:1145,  t5:21.78, f5:1385,  t6:22.78, f6:1449},
+   {a:"Personal",      om:1,  oa:10.6,  t0:20,  la:212,   t5:24.20, f5:257,   t6:25.20, f6:267},
+ ]},
+ {n:"Zagaria Beatrice",     low:true,  irpef:false, acts:[
+   {a:"Sala Pesi",     om:24, oa:254.4, t0:7,   la:1781,  t5:8.47,  f5:2155,  t6:9.47,  f6:2409},
+ ]},
+ {n:"Portale Alice",        low:false, irpef:false, acts:[
+   {a:"Fitness",       om:28, oa:296.8, t0:15,  la:4452,  t5:18.15, f5:5387,  t6:19.15, f6:5684},
+ ]},
+ {n:"Pino Micol",           low:true,  irpef:false, acts:[
+   {a:"Fitness",       om:2,  oa:21.2,  t0:20,  la:424,   t5:24.20, f5:513,   t6:25.20, f6:534},
+ ]},
+ {n:"Pensini Arianna",      low:true,  irpef:false, acts:[
+   {a:"Fitness",       om:8,  oa:84.8,  t0:18,  la:1526,  t5:21.78, f5:1847,  t6:22.78, f6:1932},
+ ]},
+ {n:"Antonio Quaglia",      low:true,  irpef:false, acts:[
+   {a:"Fitness",       om:11, oa:116.6, t0:15,  la:1749,  t5:18.15, f5:2116,  t6:19.15, f6:2233},
+ ]},
+];
+
+const fi=v=>'€'+Math.round(v).toLocaleString('it-IT');
+const fh=v=>'€'+parseFloat(v).toFixed(2);
+
+// Lookup tabella
+const rates=[7,8,15,16,17,18,20,26];
+const grid=document.getElementById('lookup-grid');
+rates.forEach(r=>{
+  const t5=parseFloat((r*1.20981).toFixed(2));
+  const t6=parseFloat((t5+1).toFixed(2));
+  const d=document.createElement('div');
+  d.className='lk-item';
+  d.innerHTML=`<span class="lk-today">${fh(r)}</span><span class="lk-arr">→</span><span class="lk-piva">${fh(t5)}</span><span class="lk-y6">(${fh(t6)})</span>`;
+  grid.appendChild(d);
+});
+
+// Tabella
+const tbody=document.getElementById('tbody');
+let totLa=0, totF5=0, totF6=0;
+
+D.forEach(p=>{
+  // Riga persona
+  const pr=document.createElement('tr');
+  pr.className='person-row';
+  const lowBadge=p.low?'<span class="badge warn">P.IVA sconsigliata</span>':'';
+  const irpefBadge=p.irpef?'<span class="badge warn">verif. IRPEF</span>':'';
+  pr.innerHTML=`<td colspan="9" class="l">${p.n}${lowBadge}${irpefBadge}</td>`;
+  tbody.appendChild(pr);
+
+  p.acts.forEach(a=>{
+    totLa+=a.la; totF5+=a.f5; totF6+=a.f6;
+    const ar=document.createElement('tr');
+    ar.className='act-row';
+    ar.innerHTML=`
+      <td class="l att">${a.a}</td>
+      <td class="mono">${a.om}</td>
+      <td class="mono">${a.oa.toLocaleString('it-IT')}</td>
+      <td class="mono lordo">${fi(a.la)}</td>
+      <td class="mono today">${fh(a.t0)}</td>
+      <td class="mono piva">${fh(a.t5)}</td>
+      <td class="mono" style="color:#3B6D11">${fi(a.f5)}</td>
+      <td class="mono y6">${fh(a.t6)}</td>
+      <td class="mono" style="color:#185FA5">${fi(a.f6)}</td>`;
+    tbody.appendChild(ar);
+  });
+});
+
+// Footer
+const tf=document.getElementById('tfoot');
+const tr=document.createElement('tr');
+tr.innerHTML=`
+  <td class="l">Totale — 27 righe attività</td>
+  <td></td><td></td>
+  <td class="mono" style="color:var(--mid-grey)">${fi(totLa)}</td>
+  <td></td>
+  <td></td>
+  <td class="mono" style="color:#3B6D11">${fi(totF5)}</td>
+  <td></td>
+  <td class="mono" style="color:#185FA5">${fi(totF6)}</td>`;
+tf.appendChild(tr);
+})();
+</script>
+</body>
+</html>
